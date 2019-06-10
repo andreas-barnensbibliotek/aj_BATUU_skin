@@ -13,11 +13,6 @@
 <%@ Register TagPrefix="fortyfingers" TagName="STYLEHELPER" Src="~/DesktopModules/40Fingers/SkinObjects/StyleHelper/StyleHelper.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JQUERY" Src="~/Admin/Skins/jQuery.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
-<dnn:DnnCssInclude runat="server" FilePath="public/css/batuu.css" PathNameAlias="SkinPath" />
-<dnn:DnnCssInclude runat="server" FilePath="layout/styles/main.css" PathNameAlias="SkinPath" />
-<dnn:DnnCssInclude runat="server" FilePath="layout/styles/mediaqueries.css" PathNameAlias="SkinPath" />
-<dnn:DnnCssInclude runat="server" FilePath="layout/styles/slicknav.css" PathNameAlias="SkinPath" />
-
 
 
 <div id="maincontainer" class="aj_bb_KrypinMainContainer">
@@ -245,4 +240,4 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/bootstrap.bundle.min.js" PathNameAlias="SkinPath" />
-<%--dnn:DnnJsInclude runat="server" FilePath="public/js/aj_batuu.1.0.0.js" PathNameAlias="SkinPath" />--%>
+<dnn:DnnJsInclude runat="server" FilePath="public/js/aj_batuu.1.0.0.js" PathNameAlias="SkinPath" />

@@ -105,11 +105,11 @@
     },
     "./assets/js/components/test.js": function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
-        eval("let _ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n\nconst hello = () => {\n  return {\n    skrik: msg => {\n      //alert('Hello2! ');\n      return 'Lodash TEST addition:(6+4=) ' + _.add(6, 4) + ' --- ' + msg;\n    },\n    alfvalue: 'detta är ett simpelt värde från hello test!'\n  };\n};\n\n/* harmony default export */ __webpack_exports__[\"a\"] = (hello);\n\n//# sourceURL=webpack:///./assets/js/components/test.js?");
+        eval("let _ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n\nconst hello = () => {\n  return {\n    skrik: msg => {\n      //alert('Hello2! ');\n      return 'Lodash TEST addition:(6+4=) ' + _.add(6, 4) + ' --- ' + msg;\n    },\n    alfvalue: 'This is an simple value from hello test!'\n  };\n};\n\n/* harmony default export */ __webpack_exports__[\"a\"] = (hello);\n\n//# sourceURL=webpack:///./assets/js/components/test.js?");
     },
     "./assets/js/main.js": function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
-        eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/test */ \"./assets/js/components/test.js\");\n\n\nvar dt = __webpack_require__(/*! ./components/old */ \"./assets/js/components/old.js\");\n\nlet ny = Object(_components_test__WEBPACK_IMPORTED_MODULE_0__[/* default */ \"a\"])();\nalert(ny.alfvalue); //let _ = require('lodash');\n\ndt.testarold('Hello World');\n$(function () {\n  alert(' och igen..nu utan ' + ny.skrik(dt.testarold('Hello Dev'))); //console.log('Debug');\n  //jplist.init();\n});\n\n//# sourceURL=webpack:///./assets/js/main.js?");
+        eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/test */ \"./assets/js/components/test.js\");\n\n\nvar dt = __webpack_require__(/*! ./components/old */ \"./assets/js/components/old.js\");\n\nlet ny = Object(_components_test__WEBPACK_IMPORTED_MODULE_0__[/* default */ \"a\"])();\nconsole.log(ny.alfvalue); //let _ = require('lodash');\n\ndt.testarold('Hello World');\n$(function () {\n  console.log(' och igen..nu utan ' + ny.skrik(dt.testarold('Hello Dev'))); //console.log('Debug');\n  //jplist.init();\n});\n\n//# sourceURL=webpack:///./assets/js/main.js?");
     }
 });
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([ [ "vendors~main" ], {
