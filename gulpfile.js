@@ -28,7 +28,9 @@ gulp.task('default', ['webpack', 'styles', 'jsconcatfiles'], () => {
 
 gulp.task('jsconcatfiles', function () {
     return gulp.src(
-        [  
+        [  	
+			srcPath.jsbundle + '/autocomplete/auto-complete.js',		
+			srcPath.jsbundle + '/jplist/jplist.min.js',
             srcPath.jsbundle + '/main.js',
             srcPath.jsbundle + '/vendors~main.main.js',
         ]

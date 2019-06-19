@@ -4682,7 +4682,7 @@ return /******/ (function(modules) { // webpackBootstrap ANDREAS HANDLEBARS
 	  if (false) {
 	    // We don't support this in AMD environments. For these environments, we asusme that
 	    // they are running on the browser and thus have no need for the source-map library.
-	    var SourceMap = require('source-map');
+	    var SourceMap = require('./node_modules/source-map');
 	    SourceNode = SourceMap.SourceNode;
 	  }
 	} catch (err) {}

@@ -23,8 +23,9 @@ module.exports = env => {
             path: path.resolve(__dirname, 'assets/jsbundle'),
 			filename: 'main.js' // '[name].[chunkhash].js' put this if you want to get hashed files to cache bust
 		},
+		
 		module: {
-			rules: [
+			rules: [				
 				{
 					test: /\.js$/,
 					exclude: /node_modules/,
@@ -39,6 +40,12 @@ module.exports = env => {
 						'sass-loader',
 						'postcss-loader'
 					]
+				},
+				{ test: /\.hbs$/, 
+					use: [{
+						loader: "handlebars-loader",
+						options: {helperDirs: path.resolve(__dirname, "assets/js/handlebar")} 
+					}]				
 				}
 			]
 		},
@@ -49,7 +56,12 @@ module.exports = env => {
             }),
             new webpack.ProvidePlugin({
                 _: "lodash"
-            }),
+			}),
+			new webpack.LoaderOptionsPlugin({
+				options: {
+				  handlebarsLoader: {}
+				}
+			  }),
 			// new HtmlWebpackPlugin({
 			// 	inject: false,
 			// 	hash: true,
