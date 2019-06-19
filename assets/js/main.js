@@ -1,12 +1,19 @@
-import hello from './components/test';
-var dt = require('./components/old');
-let ny = hello();
+import BooklistObj from './components/booklisthandler';
+import BooklistEventObj from './eventhandlers/booklistEventhandler';
+import qHandlerObj from './components/querystringHandler';
+import { userInfo } from 'os';
 
-console.log(ny.alfvalue);
-//let _ = require('lodash');
-dt.testarold('Hello World');
+let blobj = BooklistObj();
+let blEvent = BooklistEventObj();
+let qHandler = qHandlerObj();
+
 $(function() {
-	console.log(' och igen..nu utan ' + ny.skrik(dt.testarold('Hello Dev')));
-	//console.log('Debug');
-	//jplist.init();
+	let _userid = $('#barnensbiblCurrentUserid').html();
+	//hämta från querystring
+	let urlParams = {};
+	urlParams = qHandler.checkparamsinurl(urlParams);
+	console.log('urlParams.id: ' + urlParams.id);
+
+	jplist.init();
+	blEvent.init(_userid);
 });
