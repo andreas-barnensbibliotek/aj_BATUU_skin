@@ -1,12 +1,14 @@
 // let _ = require('lodash');
 
 import apiServiceHandler from '../service/apiServiceHandler';
+import storageHandlerObj from '../components/storagehandler';
 import appconfigObj from '../appsettings';
 
 const BooklistObj = () => {
 	let $group = '';
 	let _apiObj = apiServiceHandler();
 	let _appconfig = appconfigObj();
+	let storeObj = storageHandlerObj();
 
 	function bind() {
 		//find the elements group
@@ -79,6 +81,15 @@ const BooklistObj = () => {
 		});
 	}
 
+	function init(catid, userid, callback) {
+		storeObj.setStorageSession();
+		//debug lägg i appsettings.js
+		let url = _appconfig.api.boklistor.boklistbyCatID(catid, userid);
+		render(url, function() {
+			callback();
+		});
+	}
+
 	// Privata funktioner helper
 	function _hanteraUserid(userid) {
 		if (userid <= 0) {
@@ -89,6 +100,7 @@ const BooklistObj = () => {
 
 	return {
 		fritextSearch: fritextSearch,
+		init: init,
 		catSearch: catSearch,
 		amnSearch: amnSearch,
 		autocomplete: autocomplete,

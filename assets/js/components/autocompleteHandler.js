@@ -1,6 +1,8 @@
 import serviceobj from '../service/apiServiceHandler';
 import appconfigObj from '../appsettings';
 
+// autocomplete funktion dokument: goodies.pixabay.com/javascript/auto-complete/demo.html
+
 const autoCompleteHandler = () => {
 	let service = serviceobj();
 	let appconf = appconfigObj();
@@ -10,15 +12,10 @@ const autoCompleteHandler = () => {
 			selector: '#aj_bb_searchbox',
 			minChars: 3,
 			source: function(term, suggest) {
-				term = term.toLowerCase().trim();
-				term = $('<div>')
-					.text(term)
-					.html();
+				term = fixautostr(term);
 				try {
 					let url = appconf.api.autocomplete.getbyAuto(term, 5);
-					// 'http://localhost:59015/Api_v3.1/katalogen/typ/autocomplete/searchval/' +
-					// term +
-					// '/val/5/devkey/alf/?type=json&callback=testar';
+
 					let getdata = service.Getjson(url, function(sevicedata) {
 						let choices = sevicedata.BookList;
 						let suggestions = [];
@@ -34,16 +31,7 @@ const autoCompleteHandler = () => {
 					});
 				} catch (err) {}
 			},
-			// source: function(term, suggest) {
-			//     term = term.toLowerCase();
-			//     let choices = [['Australia', 'au'], ['Austria', 'at'], ['Brasil', 'br']];
-			//     let suggestions = [];
-			//     let i;
-			//     for (i = 0; i < choices.length; i++)
-			//         if (~(choices[i][0] + ' ' + choices[i][1]).toLowerCase().indexOf(term))
-			//             suggestions.push(choices[i]);
-			//     suggest(suggestions);
-			// },
+
 			renderItem: function(item, search) {
 				search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 				var re = new RegExp('(' + search.split(' ').join('|') + ')', 'gi');
@@ -73,6 +61,16 @@ const autoCompleteHandler = () => {
 				);
 			}
 		});
+	}
+
+	function fixautostr(str) {
+		str = str.replace(/[\\#,+()$~%.'":*<>{}]/g, '');
+		str = str.toLowerCase().trim();
+		str = $('<div>')
+			.text(str)
+			.html();
+
+		return str;
 	}
 
 	return {

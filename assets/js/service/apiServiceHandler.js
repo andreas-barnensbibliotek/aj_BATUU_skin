@@ -1,4 +1,8 @@
+import storageHandlerObj from '../components/storagehandler';
+
 const apiServiceHandler = () => {
+	let storeObj = storageHandlerObj();
+
 	function GetJsonData(url, callback) {
 		if (!url) {
 			return false;
@@ -27,6 +31,7 @@ const apiServiceHandler = () => {
 				data: postdata,
 				success: function(data) {
 					console.log('Hämtar Data: ');
+					data = storeObj.currentdata(data);
 					callback(data);
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
@@ -35,8 +40,21 @@ const apiServiceHandler = () => {
 			});
 		}
 	}
+
+	function GetJsonDataFromStorage(url, callback) {
+		let currdata = storeObj.checkStorageData();
+		if (currdata) {
+			callback(currdata);
+		} else {
+			GetJsonData(url, function(data) {
+				callback(data);
+			});
+			console.log('hämta ny data');
+		}
+	}
+
 	return {
-		Getjson: GetJsonData,
+		Getjson: GetJsonDataFromStorage,
 		Postjson: PostJsonData
 	};
 };

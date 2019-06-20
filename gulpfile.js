@@ -31,6 +31,7 @@ gulp.task('jsconcatfiles', function () {
         [  	
 			srcPath.jsbundle + '/autocomplete/auto-complete.js',		
 			srcPath.jsbundle + '/jplist/jplist.min.js',
+			srcPath.jsbundle + '/localstorage/localstorage.js',
             srcPath.jsbundle + '/main.js',
             srcPath.jsbundle + '/vendors~main.main.js',
         ]
