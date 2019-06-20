@@ -68,7 +68,7 @@ const boklistEventHandler = () => {
 		bindDom();
 		BoklistEvent(userid);
 		spinnerobj(true);
-		blobj.catSearch('6', userid, function(data) {
+		blobj.init('6', userid, function(data) {
 			//alert('funkar');
 			spinnerobj(false);
 		});

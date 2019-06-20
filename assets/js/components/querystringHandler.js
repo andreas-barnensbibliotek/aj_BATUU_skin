@@ -15,23 +15,41 @@ const queryHandler = () => {
 
 		if (!urlParams.tab) {
 			let sPageURL = window.location.href.split('/');
-			// let index = sPageURL.indexOf('addarrtab');
-			// if (index > 0) {
-			// 	urlParams.tab = sPageURL[index + 1];
-			// }
+			let index = sPageURL.indexOf('tabid');
+			if (index > 0) {
+				urlParams.tabid = sPageURL[index + 1];
+			}
 			// index = sPageURL.indexOf('addarrtab');
 			// if (index > 0) {
 			// 	urlParams.addarrtab = sPageURL[index + 1];
 			// }
-			let index = sPageURL.indexOf('id');
+			index = sPageURL.indexOf('id');
 			if (index > 0) {
 				urlParams.id = sPageURL[index + 1];
 			}
 		}
 		return urlParams;
 	}
+
+	function chkpage(urlParams) {
+		// tabid 2365 detaljvy http://localdev.kivdev.se/katalog_4_2/katalogenv5_detail/tabid/2365/Default.aspx?id=2
+		// tabid 2361 listvy
+		let retobj = false;
+		if (urlParams.tabid == '2365') {
+			if (urlParams.id > 0) {
+				console.log('detaljvy');
+				retobj = true;
+			} else {
+				window.location.replace('/katalog_4_2/tabid/2361/Default.aspx'); //skicka tillbaka till listan om inte id eller rätt sida finns
+				return false;
+			}
+		}
+		return retobj;
+	}
+
 	return {
-		checkparamsinurl: checkparamsinurl
+		checkparamsinurl: checkparamsinurl,
+		checkpage: chkpage
 	};
 };
 export default queryHandler;
