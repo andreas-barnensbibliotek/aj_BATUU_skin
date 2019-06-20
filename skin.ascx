@@ -15,6 +15,14 @@
 <%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
 
 
+
+
+
+
+
+
+
+
 <div id="maincontainer" class="aj_bb_KrypinMainContainer">
     <div class="wrapper row1 topheaderbg krypin_head_steal">
         <div id="logon" class="headerleftcol">
@@ -119,6 +127,13 @@
         </a>
     </div>
 </div>
+
+
+
+
+
+
+
 <span id="barnensbiblCurrentUserid"><%= UserController.Instance.GetCurrentUserInfo().UserID%></span>
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />

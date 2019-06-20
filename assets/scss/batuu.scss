@@ -39,7 +39,7 @@ a{
             color: $white;
 
             &:hover{
-                background-color: $orange;
+                background-color: $batuu-orange;
                 color: $body-color;
                 text-decoration: underline;
             }
@@ -50,6 +50,16 @@ a{
 .dropdown-menu {
     top: 95%;
     border-radius: 0;
+    padding: 0;
+
+    .dropdown-item{
+        padding: .5rem 1.5rem;
+
+        &:hover{
+            background-color: lighten($batuu-vanilla, 20) ;
+            color: $body-color;
+        }
+    }
 }
 
 li.dropdown:hover > .dropdown-menu {
@@ -60,15 +70,12 @@ li.dropdown:hover > .dropdown-menu {
         color: $white;
 
         &:hover{
-            background-color: $orange;
+            background-color: $batuu-orange;
             color: $body-color;
         }
     }
 
 }
-
-
-
 
 .batuu-background-row{
     background-color: $batuu-background-row-color;
@@ -82,7 +89,7 @@ li.dropdown:hover > .dropdown-menu {
     height: 330px !important;
     max-height: 380px;
     padding: 5px;
-    background-color: $yellow;
+    background-color: $batuu-yellow;
 }
 
 .batuu-logo {
