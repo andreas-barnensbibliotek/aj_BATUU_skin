@@ -13,13 +13,13 @@ const BooklistObj = () => {
 	function bind() {
 		//find the elements group
 		$group = $('#aj_katalog_groupId'); // document.getElementById('aj_katalog_group');
-	}
+	};
 
 	function gethbTmpl(dataObj, callback) {
 		//debug lägg i appsettings.js
 		let templ = _appconfig.handlebartemplate.hb_booklist_tmp;
 		callback(templ(dataObj));
-	}
+	};
 
 	function serviceApi(url, callback) {
 		_apiObj.Getjson(url, function(data) {
@@ -27,7 +27,7 @@ const BooklistObj = () => {
 				callback(ret);
 			});
 		});
-	}
+	};
 
 	function render(url, callback) {
 		bind();
@@ -42,7 +42,7 @@ const BooklistObj = () => {
 			});
 		});
 		//'<div data-jplist-item><div class="name">Andreas Josefsson</div></div><div data-jplist-item><div class="name">Ida-Stina Josefsson</div></div><div data-jplist-item><div class="name">Nils-Magnus Josefsson</div></div>                ';
-	}
+	};
 
 	///////////Publika funktioner/////////////////////
 	function fritextSearch(searchstr, userid, callback) {
@@ -52,7 +52,7 @@ const BooklistObj = () => {
 		render(url, function() {
 			callback(data);
 		});
-	}
+	};
 
 	function catSearch(catid, userid, callback) {
 		userid = _hanteraUserid(userid);
@@ -61,7 +61,7 @@ const BooklistObj = () => {
 		render(url, function() {
 			callback();
 		});
-	}
+	};
 
 	function amnSearch(amnid, userid, callback) {
 		userid = _hanteraUserid(userid);
@@ -70,7 +70,7 @@ const BooklistObj = () => {
 		render(url, function() {
 			callback();
 		});
-	}
+	};
 
 	function autocomplete(searchstr, callback) {
 		userid = _hanteraUserid(userid);
@@ -79,7 +79,7 @@ const BooklistObj = () => {
 		render(url, function() {
 			callback();
 		});
-	}
+	};
 
 	function init(catid, userid, callback) {
 		storeObj.setStorageSession();
@@ -88,15 +88,15 @@ const BooklistObj = () => {
 		render(url, function() {
 			callback();
 		});
-	}
+	};
 
 	// Privata funktioner helper
 	function _hanteraUserid(userid) {
 		if (userid <= 0) {
 			userid = 0;
-		}
+		};
 		return userid;
-	}
+	};
 
 	return {
 		fritextSearch: fritextSearch,
