@@ -10,6 +10,7 @@ const apiServiceHandler = () => {
 			fetch(url)
 				.then(resp => resp.json()) // Transform the data into json
 				.then(function(data) {
+					storeObj.addDataToStorage(data);
 					callback(data);
 				})
 				.catch(function() {
@@ -25,13 +26,12 @@ const apiServiceHandler = () => {
 			//console.log("Searchservicen hämtar Arrangemangdata");
 			$.ajax({
 				async: true,
-
 				type: 'post',
 				url: url,
 				data: postdata,
 				success: function(data) {
 					console.log('Hämtar Data: ');
-					data = storeObj.currentdata(data);
+					storeObj.addDataToStorage(data);
 					callback(data);
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
@@ -42,14 +42,24 @@ const apiServiceHandler = () => {
 	}
 
 	function GetJsonDataFromStorage(url, callback) {
-		let currdata = storeObj.checkStorageData();
-		if (currdata) {
-			callback(currdata);
-		} else {
+		if (!storeObj.chkifSession()) {
 			GetJsonData(url, function(data) {
+				storeObj.addDataToStorage(data);
+				storeObj.setSession();
 				callback(data);
 			});
-			console.log('hämta ny data');
+		} else {
+			let currdata = storeObj.getDataFromStorage();
+
+			if (currdata) {
+				callback(currdata);
+			} else {
+				GetJsonData(url, function(data) {
+					storeObj.addDataToStorage(data);
+					callback(data);
+				});
+				console.log('hämta ny data');
+			}
 		}
 	}
 

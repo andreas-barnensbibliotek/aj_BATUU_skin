@@ -1,6 +1,6 @@
 <%@ Control Language="vb" AutoEventWireup="false" Explicit="True" Inherits="DotNetNuke.UI.Skins.Skin" %>
 <%@ Register TagPrefix="dnn" TagName="LOGO" Src="~/Admin/Skins/Logo.ascx" %>
-<%@ Register TagPrefix="dnn" TagName="SEARCH" Src="~/Admin/Skins/Search.ascx" %>
+<%@ Register TagPrefix="dnn" TagName="SEARCH" Src="~/Admin/Skins/AJSearch.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="BREADCRUMB" Src="~/Admin/Skins/BreadCrumb.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="USER" Src="~/Admin/Skins/User.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
@@ -16,117 +16,104 @@
 
 
 
+<!-- ny kod -->
+<div class="container batuu-container">
 
-
-
-
-
-
-
-<div id="maincontainer" class="aj_bb_KrypinMainContainer">
-    <div class="wrapper row1 topheaderbg krypin_head_steal">
-        <div id="logon" class="headerleftcol">
-            <img id="logoimg" src="images/bblogo2.png" runat="server" />
+    <!-- Header -->
+    <div class="row"> 
+        <!-- Logo -->
+        <div class="batuu-logo-container col-2">           
+            <img id="logoimg" class="batuu-logo" src="images/bblogo2.png" runat="server" />
         </div>
-        <div id="topboxheader" class="headermaincol">
 
-            <span id="topheader">
-
+        <!-- Server -->
+        <div class="col-7">
+            <div class="d-none">
                 <span id="HeaderPane" runat="server"></span>
-
-            </span>
-            <div>&nbsp;</div>
-        </div>
-        <div class="headerrightcol">
-            <div id="logginBlock">
-                <a id="lyssarealspeakercont" href="" title="Lyssna p� sidan">
-                    <img id="lyssarealspeaker" class="lyssnarealspeaker" src="images/lyssnaRealspeaker.png" runat="server" /></a>
-                <dnn:USER ID="USER1" CssClass="userbox" runat="server" Text="Bli medlem" LegacyMode="false" />
-                <dnn:LOGIN ID="LOGIN2" CssClass="loginbox" runat="server" Text="Logga in" LegacyMode="false" />
-                <span id="searchboxen">
-                    <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="ServerSkinWidget" UseDropDownList="true" Submit="<img src=/Portals/0/Skins/nydesigntest/images/zoom.png border=&quot;0&quot; alt=&quot;Search&quot; /&gt;" />
-                </span>
-
             </div>
         </div>
 
-        <div>&nbsp;</div>
+        <!-- inlogg med mera -->
+        <div class="col-3 mt-2">          
+               
+            <dnn:USER ID="USER1" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-user'></i> Bli medlem" LegacyMode="true" />
+            <dnn:LOGIN ID="LOGIN2" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-lock'></i> Logga in" LegacyMode="true" />
+            <a id="lyssarealspeaker" href="#"  runat="server" ><i class="fas fa-volume-up"></i></a>           
+           
+            <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="ServerSkinWidget" UseDropDownList="true" Submit="<img src=/Portals/0/Skins/nydesigntest/images/zoom.png border=&quot;0&quot; alt=&quot;Search&quot; /&gt;" />
+            
+        </div>
+         
+        <!-- meny -->
+        <div  class="col px-0">
+            
+            <nav class="navbar p-0 navbar-expand-lg navbar-dark bg-dark justify-content-end">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                
+                    <dnn:MENU ID="MENU1" MenuStyle="Simple" runat="Server" />
+                
+               </div>
+            </nav>
 
+        </div>
     </div>
-    <!-- ################################################################################################ -->
-    <div class="wrapper row2">
+    <!-- #############################      HEADER ENDS        ################################################## -->
 
-        <nav id="topnav">
-            <div id="flexmenubox"></div>
-            <div id="menyn" class="containermargins clear">
-                <dnn:MENU ID="MENU1" MenuStyle="Simple" runat="Server" />
-            </div>
-        </nav>
-
-    </div>
     <!-- content -->
 
-    <div id="aj_bb_KrypinSkin" class="wrapper row3 aj_bb_KrypinSkin">
-        <div class="aj_bb_KrypinMainGrid Grid--gutters Grid--1of12">
-           
+    <div id="contentPane" runat="server"></div>
+
+    <!-- Footer -->
+
+    <div class="row batuu-footer mx-n2">
+        <div class="col-3">
+            <!-- CONTAINER ################################################################################################ -->
+            <div id="foterpane_1_4Pane"><span id="foterPane_1_4" runat="server"></span></div>
         </div>
-        <div id="krypinMenyPane" runat="server"></div>
-        <div id="contentPane" runat="server"></div>
-        <!-- flexGrid START -->
-
-
-        <!-- JPlist Exemple Start -->
-    
-    </div>
-
-<!-- Footer -->
-<div class="wrapper row2">
-    <div class="clear" id="footer">
-        <div class="containermargins">
-            <div class="footitem width1 footheight ">
-                <!-- CONTAINER ################################################################################################ -->
-                <div id="foterpane_1_4Pane"><span id="foterPane_1_4" runat="server"></span></div>
-
-            </div>
-            <div class="footitem width1 footheight ">
-                <!-- CONTAINER ################################################################################################ -->
-                <div id="foterpane_2_4Pane"><span id="foterPane_2_4" runat="server"></span></div>
-
-            </div>
-            <div class="footitem width1 footheight ">
-                <!-- CONTAINER ################################################################################################ -->
-                <div id="foterpane_3_4Pane"><span id="foterPane_3_4" runat="server"></span></div>
-
-            </div>
-            <div class="footitem width1 footheight ">
-                <!-- CONTAINER ################################################################################################ -->
-                <div id="foterpane_4_4Pane"><span id="foterPane_4_4" runat="server"></span></div>
-
-            </div>
-            <div id="footikonimg">
-                <img id="Img1" src="images/footerlogo.png" runat="server" />
-            </div>
+        <div class="col-3">
+            <!-- CONTAINER ################################################################################################ -->
+            <div id="foterpane_2_4Pane"><span id="foterPane_2_4" runat="server"></span></div>
+        </div>
+        <div class="col-3">
+            <!-- CONTAINER ################################################################################################ -->
+            <div id="foterpane_3_4Pane"><span id="foterPane_3_4" runat="server"></span></div>
+        </div>
+        <div class="col-3">
+            <!-- CONTAINER ################################################################################################ -->
+            <div id="foterpane_4_4Pane"><span id="foterPane_4_4" runat="server"></span></div>
+        </div>
+        <div id="footikonimg">
+            <img id="Img1" src="/Portals/_default/Skins/bb_BATUU/images/footerlogo.png"  />
         </div>
     </div>
-</div>
 
-</div>
 
-<div id="licbox" class="wrapper row4">
-    <div id="copyright" class="clear">
-        <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
-        <p class="fl_right"></p>
+
+
+</div>  <!-- MAIN CONTAINER END -->
+
+
+<div class="container">
+    <div id="licbox" class="wrapper row4">
+        <div id="copyright" class="clear">
+            <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
+            <p class="fl_right"></p>
+        </div>
+    </div>
+
+    <div id="ReadspeakerBox">
+        <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+            <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Lyssna p&aring; sidans text med ReadSpeaker" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=4430&amp;lang=sv_se&amp;readid=itemheight1bgrgb_ljusgra">
+                <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lyssna</span></span></span>
+                <span class="rsbtn_right rsimg rsplay rspart"></span>
+            </a>
+        </div>
     </div>
 </div>
 
-<div id="ReadspeakerBox">
-    <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-        <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Lyssna p&aring; sidans text med ReadSpeaker" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=4430&amp;lang=sv_se&amp;readid=itemheight1bgrgb_ljusgra">
-            <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lyssna</span></span></span>
-            <span class="rsbtn_right rsimg rsplay rspart"></span>
-        </a>
-    </div>
-</div>
 
 
 

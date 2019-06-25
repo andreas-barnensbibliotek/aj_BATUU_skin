@@ -1,6 +1,7 @@
 // import BooklistObj from './components/booklisthandler';
 import BooklistEventObj from './eventhandlers/booklistEventhandler';
 import qHandlerObj from './components/querystringHandler';
+import storageHandlerObj from './components/storagehandler';
 // import { userInfo } from 'os';
 
 // let blobj = BooklistObj();
@@ -20,10 +21,18 @@ $(function() {
 		console.log('listvy');
 	}
 
-	jplist.init({
-		storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
-		storageName: 'currentdata',
-		deepLinking: true
-	});
+	// if (!storobj.chkifSession()) {
+
+	// }
 	blEvent.init(_userid);
+	jplist.init({
+		storage: 'sessionStorage', //'localStorage', 'sessionStorage' or 'cookies'
+		storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+	});
+
+	let _storage = Storages.localStorage;
+
+	if (!_storage.get('test')) {
+		_storage.set('test', 'funkar');
+	}
 });

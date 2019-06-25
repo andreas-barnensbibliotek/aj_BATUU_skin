@@ -1,25 +1,26 @@
-<ul id="flexmenu">
-	[*>NODE]
+<ul class="navbar-nav mx-auto"> 
+	[*>NODE-TOP]
 </ul>
 
-[>NODE]
-	<li class="[?FIRST]first[/?][?LAST] last[/?][?SELECTED] selected[/?]">
+[>NODE-TOP]
+	<li class="nav-item dropdown [?FIRST] first[/?][?LAST] last[/?][?SELECTED] selected[/?]">
 		[?ENABLED]
-			<a href="[=URL]">[=TEXT]</a>
+			
+			<a class="nav-link dropdown-toggle" href="[=URL]" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>
 		[?ELSE]
 			[=TEXT]
 		[/?]
 		[?NODE]
-			<ul>
-				[*>NODE]
-				<li class="[?FIRST]first[/?][?LAST] last[/?][?SELECTED] selected[/?]">
-				[?ENABLED]
-					<a href="[=URL]">[=TEXT]</a>
-				[?ELSE]
-					[=TEXT]
-				[/?]
-			</ul>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				
+				[*>NODE-SUB]
+				
+			</div>
 		[/?]
 	</li>
 [/>]
 
+
+[>NODE-SUB]	
+	<a class="dropdown-item" href="[=URL]" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>		
+[/>]
