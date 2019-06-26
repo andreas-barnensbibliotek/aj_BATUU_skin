@@ -10,7 +10,7 @@ const apiServiceHandler = () => {
 			fetch(url)
 				.then(resp => resp.json()) // Transform the data into json
 				.then(function(data) {
-					storeObj.addDataToStorage(data);
+					//storeObj.addDataToStorage(data);
 					callback(data);
 				})
 				.catch(function() {
@@ -31,7 +31,7 @@ const apiServiceHandler = () => {
 				data: postdata,
 				success: function(data) {
 					console.log('Hämtar Data: ');
-					storeObj.addDataToStorage(data);
+					//storeObj.addDataToStorage(data);
 					callback(data);
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
@@ -62,9 +62,17 @@ const apiServiceHandler = () => {
 			}
 		}
 	}
+	function GetJsonDataAutocomplete(url, callback) {
+		GetJsonData(url, function(data) {
+			storeObj.addDataToStorage(data);
+			storeObj.setSession();
+			callback(data);
+		});
+	}
 
 	return {
 		Getjson: GetJsonDataFromStorage,
+		GetjsonAuto: GetJsonDataAutocomplete,
 		Postjson: PostJsonData
 	};
 };

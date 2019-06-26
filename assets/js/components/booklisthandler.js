@@ -1,5 +1,5 @@
 // let _ = require('lodash');
-
+import storageHandlerObj from '../components/storagehandler';
 import apiServiceHandler from '../service/apiServiceHandler';
 import appconfigObj from '../appsettings';
 
@@ -7,6 +7,7 @@ const BooklistObj = () => {
 	let $group = '';
 	let _apiObj = apiServiceHandler();
 	let _appconfig = appconfigObj();
+	let _storeObj = storageHandlerObj();
 
 	function bind() {
 		//find the elements group
@@ -35,7 +36,9 @@ const BooklistObj = () => {
 			//refresh jPList content
 			//jplist.resetContent(function() {
 			//add element to the group
+			// $group.html('');
 			$group.html(data);
+
 			callback(true);
 			//});
 		});
@@ -47,8 +50,13 @@ const BooklistObj = () => {
 		//debug
 		userid = _hanteraUserid(userid);
 		let url = _appconfig.api.boklistor.boklistbyFritext(searchstr, userid);
+
+		_storeObj.resetstorage();
+
 		render(url, function() {
-			callback(data);
+			jplist.resetContent(function() {
+				callback();
+			});
 		});
 	}
 
@@ -56,8 +64,14 @@ const BooklistObj = () => {
 		userid = _hanteraUserid(userid);
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.boklistor.boklistbyCatID(catid, userid);
+
+		_storeObj.resetstorage();
+		//reset ALL controls
+
 		render(url, function() {
-			callback();
+			jplist.resetContent(function() {
+				callback();
+			});
 		});
 	}
 
@@ -65,8 +79,13 @@ const BooklistObj = () => {
 		userid = _hanteraUserid(userid);
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.boklistor.boklistbyAmneID(amnid, userid);
+
+		_storeObj.resetstorage();
+
 		render(url, function() {
-			callback();
+			jplist.resetContent(function() {
+				callback();
+			});
 		});
 	}
 
@@ -74,14 +93,18 @@ const BooklistObj = () => {
 		userid = _hanteraUserid(userid);
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.autocomplete.getbyAuto(searchstr);
+		// _storeObj.resetstorage();
+
 		render(url, function() {
+			// jplist.resetContent(function() {
 			callback();
+			// });
 		});
 	}
 
 	function init(catid, userid, callback) {
 		userid = _hanteraUserid(userid);
-
+		_appconfig.userinfo.userid = userid;
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.boklistor.boklistbyCatID(catid, userid);
 		render(url, function() {

@@ -64,13 +64,14 @@ const boklistEventHandler = () => {
 		// });
 	}
 
-	function init(userid) {
+	function init(userid, callback) {
 		bindDom();
 		BoklistEvent(userid);
 		spinnerobj(true);
 		blobj.init('6', userid, function(data) {
 			//alert('funkar');
 			spinnerobj(false);
+			callback();
 		});
 	}
 

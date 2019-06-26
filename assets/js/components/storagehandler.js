@@ -1,6 +1,6 @@
 const storagehandler = () => {
 	let _storage = Storages.localStorage;
-	console.log('storage: ' + _storage);
+	//console.log('storage: ' + _storage);
 	let _session = Storages.sessionStorage;
 
 	// LOCALSTORAGE
@@ -35,6 +35,7 @@ const storagehandler = () => {
 		if (stdata) {
 			// _storage.removeAll();
 			console.log('ADD currentdata to storage: ' + stdata);
+			_storage.remove('currentdata');
 			_storage.set('currentdata', stdata);
 		}
 		return stdata;
@@ -49,12 +50,18 @@ const storagehandler = () => {
 		return stdata;
 	}
 
+	function resetStorage() {
+		_storage.remove('currentdata');
+		_session.remove('my-page-storage');
+	}
+
 	return {
 		checkStorageData: isCurrentdataSet,
 		addDataToStorage: addDataToStorageHandler,
 		getDataFromStorage: getDataFromStorageHandler,
 		setSession: SetSession,
-		chkifSession: chkIfsessionActive
+		chkifSession: chkIfsessionActive,
+		resetstorage: resetStorage
 	};
 };
 

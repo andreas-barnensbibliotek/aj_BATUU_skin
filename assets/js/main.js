@@ -24,15 +24,10 @@ $(function() {
 	// if (!storobj.chkifSession()) {
 
 	// }
-	blEvent.init(_userid);
-	jplist.init({
-		storage: 'sessionStorage', //'localStorage', 'sessionStorage' or 'cookies'
-		storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+	blEvent.init(_userid, function() {
+		jplist.init({
+			storage: 'sessionStorage', //'localStorage', 'sessionStorage' or 'cookies'
+			storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+		});
 	});
-
-	let _storage = Storages.localStorage;
-
-	if (!_storage.get('test')) {
-		_storage.set('test', 'funkar');
-	}
 });
