@@ -55,62 +55,6 @@
             </div>
             
         </div>
-         
-        <!-- meny -->
-        <div  class="col px-0">
-            <!-- OLD NAV ############################################################### -->
-                <!--
-                    <nav id="topnav">
-                            <div id="flexmenubox"></div>
-                            <div id="menyn" class="containermargins clear">
-                                <dnn:MENU ID="MENU1" MenuStyle="Simple" runat="Server" />
-                            </div>
-                    </nav>
-                -->
-
-            <!-- NEW NAV ############################################################### -->
-           
-            <nav class="navbar p-0 navbar-expand-lg navbar-dark bg-dark justify-content-end">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                            <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        HEM
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    BOKTIPS
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                FÖRFATTARE
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                    </div>
-            </nav>
-
-        </div>
     </div>
     <!-- #############################      HEADER ENDS        ################################################## -->
 
@@ -230,14 +174,37 @@
     </div>
 
 
-
-
-       
-        
         
                 
         <div class="row">
+      
+            
+            <div class="col-12">
+                <button
+                    data-jplist-control="layout"
+                    type="button"
+                    data-class="col-12"
+                    data-group="group1"
+                    data-name="name1">List</button>
                 
+                <button
+                    type="button"
+                    data-jplist-control="layout"
+                    data-class="jplist-grid"
+                    data-group="group1"
+                    data-name="name1"
+                    data-selected="true">Grid</button>
+                
+                <button
+                    type="button"
+                    data-jplist-control="layout"
+                    data-class="jplist-thumb"
+                    data-group="group1"
+                    data-name="name1">Thumb</button>       
+            </div>  
+
+
+
             <div class="col-md-12">
 
 
@@ -247,74 +214,74 @@
                     <!-- item -->
 
                         <div class="col d-flex align-items-center p-4 batuu-background-row-item"  data-jplist-item>
-                                <div class="text-center">
-                                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                                    <p class="font-weight-bold my-1 book-title">Boktitel</p>
-                                    <p class="font-weight-light my-0 author">Adam Författare</p>
-                                </div>
-                
-                                <div class="align-self-start">
-                                    <div class="dropdown dropleft">
-                                        <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Gå till boken</a>
-                                            <a class="dropdown-item" href="#">Skriv boktips</a>
-                                            <a class="dropdown-item" href="#">Läser denna just nu</a>
-                                            <a class="dropdown-item" href="#">Ta bort från listan</a>
-                                        </div>      
-                                    </div>
+                            <div class="text-center">
+                                <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
+                                <p class="font-weight-bold my-1 book-title">Boktitel</p>
+                                <p class="font-weight-light my-0 author">Adam Författare</p>
+                            </div>
+            
+                            <div class="align-self-start">
+                                <div class="dropdown dropleft">
+                                    <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Gå till boken</a>
+                                        <a class="dropdown-item" href="#">Skriv boktips</a>
+                                        <a class="dropdown-item" href="#">Läser denna just nu</a>
+                                        <a class="dropdown-item" href="#">Ta bort från listan</a>
+                                    </div>      
                                 </div>
                             </div>
+                        </div>
 
 
                     <!-- item -->
 
                         <div class="col d-flex align-items-center p-4 batuu-background-row-item" data-jplist-item>
-                                <div class="text-center">
-                                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                                    <p class="font-weight-bold my-1 book-title">Boktitel</p>
-                                    <p class="font-weight-light my-0 author"> Kevin Författare</p>
-                                </div>
-                
-                                <div class="align-self-start">
-                                    <div class="dropdown dropleft">
-                                        <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Gå till boken</a>
-                                            <a class="dropdown-item" href="#">Skriv boktips</a>
-                                            <a class="dropdown-item" href="#">Läser denna just nu</a>
-                                            <a class="dropdown-item" href="#">Ta bort från listan</a>
-                                        </div>      
-                                    </div>
+                            <div class="text-center">
+                                <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
+                                <p class="font-weight-bold my-1 book-title">Boktitel</p>
+                                <p class="font-weight-light my-0 author"> Kevin Författare</p>
+                            </div>
+            
+                            <div class="align-self-start">
+                                <div class="dropdown dropleft">
+                                    <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Gå till boken</a>
+                                        <a class="dropdown-item" href="#">Skriv boktips</a>
+                                        <a class="dropdown-item" href="#">Läser denna just nu</a>
+                                        <a class="dropdown-item" href="#">Ta bort från listan</a>
+                                    </div>      
                                 </div>
                             </div>
+                        </div>
 
                     <!-- item -->
                         <div class="col d-flex align-items-center p-4 batuu-background-row-item" data-jplist-item>
-                                <div class="text-center">
-                                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                                    <p class="font-weight-bold my-1 book-title">Boktitel</p>
-                                    <p class="font-weight-light my-0 author"> Sven Författare</p>
-                                </div>
-                
-                                <div class="align-self-start">
-                                    <div class="dropdown dropleft">
-                                        <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Gå till boken</a>
-                                            <a class="dropdown-item" href="#">Skriv boktips</a>
-                                            <a class="dropdown-item" href="#">Läser denna just nu</a>
-                                            <a class="dropdown-item" href="#">Ta bort från listan</a>
-                                        </div>      
-                                    </div>
+                            <div class="text-center">
+                                <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
+                                <p class="font-weight-bold my-1 book-title">Boktitel</p>
+                                <p class="font-weight-light my-0 author"> Sven Författare</p>
+                            </div>
+            
+                            <div class="align-self-start">
+                                <div class="dropdown dropleft">
+                                    <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Gå till boken</a>
+                                        <a class="dropdown-item" href="#">Skriv boktips</a>
+                                        <a class="dropdown-item" href="#">Läser denna just nu</a>
+                                        <a class="dropdown-item" href="#">Ta bort från listan</a>
+                                    </div>      
                                 </div>
                             </div>
+                        </div>
     
                             
                     <!-- item -->

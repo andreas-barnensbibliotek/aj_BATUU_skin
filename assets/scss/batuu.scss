@@ -7,7 +7,9 @@
  * dropdown
  */
 
-
+.bred{
+    border: 1px solid red;
+}
  body {
     background-color: $body-background-color;
     color: $body-color; 
@@ -72,6 +74,15 @@ a{
     }
 }
 
+@include media-breakpoint-between(lg, xl) {   
+    .nav-item {
+        &:first-child{
+            margin-left: 165px;
+        }
+    }
+}
+
+
 li.dropdown:hover > .dropdown-menu {
     display: block;
     background-color: $gray-800;
@@ -86,14 +97,48 @@ li.dropdown:hover > .dropdown-menu {
     }
 
 }
+/*
 
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu a::after {
+    transform: rotate(0deg);
+    position: absolute;
+    right: 6px;
+    top: .8em;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    color: $white;
+    background-color: $gray-800;
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    margin-right: .1rem;
+  }
 
+.dropdown-submenu {
+    position: relative;
 
+    a::after {
+        transform: rotate(0deg);
+        position: absolute;
+        right: 6px;
+        top: .8em;
+      }
+      .dropdown-menu {
+        color: $white;
+        background-color: $gray-800;
+        top: 0;
+        left: 100%;
+        margin-left: .1rem;
+        margin-right: .1rem;
+      }
+}
 
-
-
-
-
+*/
 .batuu-background-row{
     background-color: $batuu-background-row-color;
 }
@@ -140,6 +185,24 @@ li.dropdown:hover > .dropdown-menu {
     height: 25px;
 }
 
+
+.inline-block{
+    display: inline-block;
+}
+
+.batuu-book-img{
+    overflow: hidden;
+    max-width: 190px;
+}
+
+.batuu-book-title{
+    height: 70px;
+    bottom: 0;
+}
+
+
+
+
 // Category button
 .btn-category {
     width: 100px;
@@ -177,7 +240,16 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 
+.page-link {
+    color: $gray-600;
+}
 
+.page-item.active .page-link {
+    color: $batuu-gray-900;
+    background-color: $batuu-green;
+    border-color: $batuu-green;
+
+}
 
 
 // JPlist /////////////////////////////////////////////////////////

@@ -75,7 +75,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
+                    <ul class="navbar-nav mx-auto d-flex flex-wrap">
                             <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         HEM
@@ -87,18 +87,68 @@
                                     </div>
                                 </li>
                         <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    BOKTIPS
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                BOKTIPS
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 FÖRFATTARE
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 2
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU TEM 3
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 4
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 5
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 6
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Action</a>
@@ -220,13 +270,18 @@
     <div class="row p-2 mx-n2 batuu-background-row">
 
         
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
-                <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
-                </div>
-
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
+                <a href="#">
+                    <div class="text-center">
+                            <div class="batuu-book-img">
+                                <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
+                            </div>
+                            <div class="batuu-book-title">
+                                <p class="font-weight-bold my-1">Boktitel</p>
+                                <p class="font-weight-light my-0">Författare</p>
+                            </div>
+                    </div>
+                </a>
                 <div class="align-self-start">
                     <div class="dropdown dropleft">
                         <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -242,11 +297,15 @@
                 </div>
             </div>
         
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                    <div class="batuu-book-img">
+                        <img src="images/bok2.jpg" alt="..." class="img-thumbnail">
+                    </div>
+                    <div class="batuu-book-title">
+                        <p class="font-weight-bold my-1">Boktitel</p>
+                      <p class="font-weight-light my-0">Författare</p>
+                    </div>
                 </div>
 
                 <div class="align-self-start">
@@ -263,11 +322,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                        <div class="batuu-book-img">
+                            <img src="images/bok3.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="batuu-book-title">
+                            <p class="font-weight-bold my-1">Boktitel</p>
+                            <p class="font-weight-light my-0">Författare</p>
+                        </div>
                 </div>
 
                 <div class="align-self-start">
@@ -284,11 +347,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                        <div class="batuu-book-img">
+                            <img src="images/bok2.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="batuu-book-title">
+                            <p class="font-weight-bold my-1">Boktitel</p>
+                            <p class="font-weight-light my-0">Författare</p>
+                        </div>
                 </div>
 
                 <div class="align-self-start">
@@ -305,11 +372,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                        <div class="batuu-book-img">
+                            <img src="images/bok2.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="batuu-book-title">
+                            <p class="font-weight-bold my-1">Boktitel</p>
+                            <p class="font-weight-light my-0">Författare</p>
+                        </div>
                 </div>
 
                 <div class="align-self-start">
@@ -447,7 +518,27 @@
 
 
 
-                
+    <div class="d-flex justify-content-center">
+        
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+                    </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+                    </a>
+                    </li>
+                </ul>
+            </nav>
+
+    </div>
 
 
 
