@@ -24,28 +24,21 @@
         </div>
 
         <!-- Server -->
-        <div class="col-7">
-            <div class="d-none">
-                <span runat="server"></span>
-            </div>
+        <div class="col-7 batuu-header-content">
+           <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
         </div>
 
         <!-- inlogg med mera -->
         <div class="col-3 mt-2">
             
-
-                <!--     
-                <dnn:USER ID="USER1" CssClass="userbox" runat="server" Text="Bli medlem" LegacyMode="false" />
-                <dnn:LOGIN ID="LOGIN2" CssClass="loginbox" runat="server" Text="Logga in" LegacyMode="false" />
-                <a id="lyssarealspeakercont" href="" title="Lyssna p� sidan">
-                    <img id="lyssarealspeaker" class="lyssnarealspeaker" src="images/lyssnaRealspeaker.png" runat="server" />
-                </a>
-                -->
-            
-            <a href="#" class="font-weight-bold mr-3"><i class="fas fa-user"></i> Bli medlem</a>
-            <a href="#" class="font-weight-bold mr-3"><i class="fas fa-lock"></i> Logga in</a>
-            <a href="#" ><i class="fas fa-volume-up"></i></a>
-           
+            <div class="d-flex justify-content-between">
+                <a href="#"><p class="batuu-header-links batuu-user">Bli medlem</p></a>
+                <a href="#"><p class="batuu-header-links batuu-login">Logga in</p></a>
+        <!-- När man är inloggad
+           <a href="#"><p class="batuu-header-links batuu-logout"> Logga ut</p></a> 
+        -->  
+                <a href="#"><p class="batuu-header-links"><i class="fas fa-volume-up"></i></p></a>
+           </div>
 
             <div class="input-group mb-3 mt-2">
                 <input type="text" class="form-control form-control-sm" placeholder="Sök" aria-label="Sök" aria-describedby="basic-addon2">
@@ -53,7 +46,16 @@
                     <button class="btn btn-batuu-green btn-sm" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </div>
+
+            <!-- TESTA DENNA KODEN NEDAN ISTÄLLET
             
+                <span id="searchboxen">
+                    <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="btn btn-batuu-green" UseDropDownList="true" Submit="<i class="fas fa-search"></i>" />
+                </span>
+            -->
+
+
+
         </div>
          
         <!-- meny -->
@@ -75,30 +77,90 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
+                    <ul class="navbar-nav mx-auto d-flex flex-wrap">
                             <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         HEM
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                           <!-- Scrollbar dropdown bara lägg till classen scrollable-menu-->
+                                    <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here to read more about</a>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
                                         <a class="dropdown-item" href="#">Action</a>
                                         <a class="dropdown-item" href="#">Another action</a>
                                         <a class="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </li>
                         <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    BOKTIPS
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                BOKTIPS
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 FÖRFATTARE
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 2
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU TEM 3
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 4
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 5
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU ITEM 6
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Action</a>
@@ -220,13 +282,18 @@
     <div class="row p-2 mx-n2 batuu-background-row">
 
         
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
-                <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
-                </div>
-
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
+                <a href="#">
+                    <div class="text-center">
+                            <div class="batuu-book-img">
+                                <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
+                            </div>
+                            <div class="batuu-book-title">
+                                <p class="font-weight-bold my-1">Boktitel</p>
+                                <p class="font-weight-light my-0">Författare</p>
+                            </div>
+                    </div>
+                </a>
                 <div class="align-self-start">
                     <div class="dropdown dropleft">
                         <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -242,11 +309,15 @@
                 </div>
             </div>
         
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                    <div class="batuu-book-img">
+                        <img src="images/bok2.jpg" alt="..." class="img-thumbnail">
+                    </div>
+                    <div class="batuu-book-title">
+                        <p class="font-weight-bold my-1">Boktitel</p>
+                      <p class="font-weight-light my-0">Författare</p>
+                    </div>
                 </div>
 
                 <div class="align-self-start">
@@ -263,11 +334,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                        <div class="batuu-book-img">
+                            <img src="images/bok3.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="batuu-book-title">
+                            <p class="font-weight-bold my-1">Boktitel</p>
+                            <p class="font-weight-light my-0">Författare</p>
+                        </div>
                 </div>
 
                 <div class="align-self-start">
@@ -284,11 +359,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                        <div class="batuu-book-img">
+                            <img src="images/bok2.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="batuu-book-title">
+                            <p class="font-weight-bold my-1">Boktitel</p>
+                            <p class="font-weight-light my-0">Författare</p>
+                        </div>
                 </div>
 
                 <div class="align-self-start">
@@ -305,11 +384,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex align-items-center p-4 batuu-background-row-item">
+            <div class="col d-flex align-items-end p-4 batuu-background-row-item">
                 <div class="text-center">
-                    <img src="images/bok1.jpg" alt="..." class="img-thumbnail">
-                    <p class="font-weight-bold my-1">Boktitel</p>
-                    <p class="font-weight-light my-0">Författare</p>
+                        <div class="batuu-book-img">
+                            <img src="images/bok2.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="batuu-book-title">
+                            <p class="font-weight-bold my-1">Boktitel</p>
+                            <p class="font-weight-light my-0">Författare</p>
+                        </div>
                 </div>
 
                 <div class="align-self-start">
@@ -447,8 +530,31 @@
 
 
 
-                
+    <div class="d-flex justify-content-center">
+        
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+                    </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+                    </a>
+                    </li>
+                </ul>
+            </nav>
 
+    </div>
+
+<div>
+
+</div>
 
 
  <!-- Footer -->
@@ -470,8 +576,8 @@
             <!-- CONTAINER ################################################################################################ -->
             <div id="foterpane_4_4Pane"><span id="foterPane_4_4" runat="server"></span></div>
         </div>
-        <div id="footikonimg">
-            <img id="Img1" src="images/footerlogo.png" runat="server" />
+        <div class="col-12">
+            <img class="img-fluid" src="images/footerlogo.png" runat="server" />
         </div>
     </div>
 
