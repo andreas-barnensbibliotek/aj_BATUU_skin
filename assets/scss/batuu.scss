@@ -64,6 +64,29 @@ a {
     margin-right: 1rem;
     margin-bottom: 0;
 }
+
+.batuu-user::before{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f007";
+    margin-right: 5px;
+
+}
+.batuu-login::before{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f023";
+    margin-right: 5px;
+
+}
+.batuu-logout::before{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f3c1";
+    margin-right: 5px;
+
+}
+
 .batuu-header-content{
     height: 150px;
     overflow: hidden;
@@ -129,6 +152,11 @@ a {
     }
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
 
 li.dropdown:hover > .dropdown-menu {
     display: block;
@@ -186,6 +214,12 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 */
+
+
+
+
+
+
 .batuu-background-row{
     background-color: $batuu-background-row-color;
 }

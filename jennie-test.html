@@ -32,10 +32,12 @@
         <div class="col-3 mt-2">
             
             <div class="d-flex justify-content-between">
-                <a href="#"><p class="batuu-header-links"><i class="fas fa-user"></i> Bli medlem</p></a>
-                <a href="#"><p class="batuu-header-links inline-block"><i class="fas fa-lock"></i> Logga in</p></a>
-        <!--    <a href="#"><p class="batuu-header-links inline-block"><i class="fas fa-lock-open"></i> Logga ut</p></a> -->  
-                <a href="#"><p class="batuu-header-links inline-block"><i class="fas fa-volume-up inline-block"></i></p></a>
+                <a href="#"><p class="batuu-header-links batuu-user">Bli medlem</p></a>
+                <a href="#"><p class="batuu-header-links batuu-login">Logga in</p></a>
+        <!-- När man är inloggad
+           <a href="#"><p class="batuu-header-links batuu-logout"> Logga ut</p></a> 
+        -->  
+                <a href="#"><p class="batuu-header-links"><i class="fas fa-volume-up"></i></p></a>
            </div>
 
             <div class="input-group mb-3 mt-2">
@@ -44,7 +46,16 @@
                     <button class="btn btn-batuu-green btn-sm" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </div>
+
+            <!-- TESTA DENNA KODEN NEDAN ISTÄLLET
             
+                <span id="searchboxen">
+                    <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="btn btn-batuu-green" UseDropDownList="true" Submit="<i class="fas fa-search"></i>" />
+                </span>
+            -->
+
+
+
         </div>
          
         <!-- meny -->
@@ -71,7 +82,17 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         HEM
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                           <!-- Scrollbar dropdown bara lägg till classen scrollable-menu-->
+                                    <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here to read more about</a>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
                                         <a class="dropdown-item" href="#">Action</a>
                                         <a class="dropdown-item" href="#">Another action</a>
                                         <a class="dropdown-item" href="#">Something else here</a>
@@ -531,6 +552,9 @@
 
     </div>
 
+<div>
+
+</div>
 
 
  <!-- Footer -->
@@ -552,8 +576,8 @@
             <!-- CONTAINER ################################################################################################ -->
             <div id="foterpane_4_4Pane"><span id="foterPane_4_4" runat="server"></span></div>
         </div>
-        <div id="footikonimg">
-            <img id="Img1" src="images/footerlogo.png" runat="server" />
+        <div class="col-12">
+            <img class="img-fluid" src="images/footerlogo.png" runat="server" />
         </div>
     </div>
 
