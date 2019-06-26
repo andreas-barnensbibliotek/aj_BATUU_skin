@@ -18,20 +18,67 @@
     background-position: center top; 
 }
 
-a{
+a {
     color: $body-color;
+
+    &:hover{
+        color: $batuu-teak;
+    }
+}
+
+.batuu-link{
+  	color: $batuu-teak;
+
+    &:hover,
+    &:active {
+      color: $body-color; 
+    }
+
+
 }
 
 .batuu-container {
     background-color: $white;
 }
 
-.batuu-nav{
- padding-left: -15px;
- padding-right: -15px;
+.batuu-logo {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 8;
+    max-height: 175px;
+    padding-left: 0;
+
+    @include media-breakpoint-between(lg, xl) {   
+        padding-left: 20px;
+    }
 }
 
+.batuu-logo-container{
+    max-height: 120px;
+}
 
+.batuu-header-links{
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+.batuu-header-content{
+    height: 150px;
+    overflow: hidden;
+    display: none;
+
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+
+}
+
+.batuu-nav{
+    padding-left: -15px;
+    padding-right: -15px;
+}
 
 .navbar-dark {
     .navbar-nav{
@@ -154,18 +201,7 @@ li.dropdown:hover > .dropdown-menu {
     background-color: $batuu-yellow;
 }
 
-.batuu-logo {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    z-index: 8;
-    max-height: 175px;
-    padding-left: 25px;
 
-}
-.batuu-logo-container{
-    max-height: 120px;
-}
 
 @include media-breakpoint-between(lg, xl) {   
     .batuu-category-div{   
@@ -200,8 +236,19 @@ li.dropdown:hover > .dropdown-menu {
     bottom: 0;
 }
 
+.batuu-rating-item{
+    height: 20px;
 
+}
 
+.batuu-quote{
+    &::before{
+         content: "\”";
+    }
+    &::after{
+         content: "\”\.";
+    }
+}
 
 // Category button
 .btn-category {
