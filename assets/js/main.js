@@ -10,7 +10,7 @@ let qHandler = qHandlerObj();
 
 $(function() {
 	let _userid = $('#barnensbiblCurrentUserid').html();
-	//hämta från querystring
+	// hämta från querystring
 	let urlParams = {};
 	urlParams = qHandler.checkparamsinurl(urlParams);
 	console.log('urlParams.id: ' + urlParams.id);
@@ -18,16 +18,15 @@ $(function() {
 	if (qHandler.checkpage(urlParams)) {
 		console.log('detaljvy');
 	} else {
-		console.log('listvy');
-	}
+		// if (!storobj.chkifSession()) {
 
-	// if (!storobj.chkifSession()) {
-
-	// }
-	blEvent.init(_userid, function() {
+		// }
+		blEvent.init(_userid, function() {});
 		jplist.init({
-			storage: 'sessionStorage', //'localStorage', 'sessionStorage' or 'cookies'
+			storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
 			storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
 		});
-	});
+		//jplist.resetControls();
+		console.log('listvy');
+	}
 });

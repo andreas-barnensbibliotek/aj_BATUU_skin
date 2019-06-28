@@ -29,6 +29,7 @@ const boklistEventHandler = () => {
 
 			blobj.catSearch(catid, userid, function(data) {
 				//alert('funkar');
+				teststart();
 				spinnerobj(false);
 			});
 
@@ -63,16 +64,22 @@ const boklistEventHandler = () => {
 		// 	}
 		// });
 	}
-
+	function teststart() {
+		// jplist.init({
+		// 	storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
+		// 	storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+		// });
+		// jplist.refresh('aj_katalog_group');
+	}
 	function init(userid, callback) {
 		bindDom();
 		BoklistEvent(userid);
-		spinnerobj(true);
-		blobj.init('6', userid, function(data) {
-			//alert('funkar');
-			spinnerobj(false);
-			callback();
-		});
+		// spinnerobj(true);
+		// blobj.init('6', userid, function(data) {
+		// 	//alert('funkar');
+		// 	spinnerobj(false);
+		// 	callback();
+		// });
 	}
 
 	/// HELPER functions---------------

@@ -2,13 +2,14 @@
 {{#each Bookitems}}
 
 <div class="col d-flex align-items-center p-4 batuu-background-row-item col-md-3" data-jplist-item>
-    <div class="text-center aj_bb_year{{Published}} aj_bb_easy_{{Easyread}}">
-        <span class="{{#each Categories}}aj_bb_cat_{{CategoryID}} {{/each}}"></span>
-        <img src="{{BokomslagURL}}" alt="{{title}}" class="img-thumbnail">
-        <p class="font-weight-bold my-1 book-title">{{title}}</p>
-        <p class="font-weight-light my-0 author">{{#each Forfattare}} {{namn}} {{/each}}</p>
-    </div>
-
+    <a href="#">
+        <div class="text-center aj_bb_year{{Published}} aj_bb_easy_{{Easyread}}">
+            <span class="{{#each Categories}}aj_bb_cat_{{CategoryID}} {{/each}}"></span>
+            <img src="{{BokomslagURL}}" alt="{{title}}" class="img-thumbnail">
+            <p class="font-weight-bold my-1 book-title">{{title}}</p>
+            <p class="font-weight-light my-0 author">{{#each Forfattare}} {{namn}} {{/each}}</p>
+        </div>
+    </a>
     <div class="align-self-start">
         <div class="dropdown dropleft">
             <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -24,6 +25,5 @@
         </div>
     </div>
 </div>
-
 
 {{/each}}

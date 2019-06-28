@@ -40,18 +40,19 @@
             <dnn:LOGIN ID="LOGIN2" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-lock'></i> Logga in" LegacyMode="true" />
             <a id="lyssarealspeaker" href="#"  runat="server" ><i class="fas fa-volume-up"></i></a>           
            
-            <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="ServerSkinWidget" UseDropDownList="true" Submit="<img src=/Portals/0/Skins/nydesigntest/images/zoom.png border=&quot;0&quot; alt=&quot;Search&quot; /&gt;" />
-            
+            <span id="searchboxen">
+                <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="btn btn-batuu-green" UseDropDownList="true" Submit="<i class=&quot;fas fa-search&quot;></i&gt;" />
+            </span>
         </div>
          
         <!-- meny -->
         <div  class="col px-0">
             
             <nav class="navbar p-0 navbar-expand-lg navbar-dark bg-dark justify-content-end">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
                 
                     <dnn:MENU ID="MENU1" MenuStyle="Simple" runat="Server" />
                 

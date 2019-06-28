@@ -40,8 +40,8 @@ const queryHandler = () => {
 				console.log('detaljvy');
 				retobj = true;
 			} else {
-				window.location.replace('/katalog_4_2/tabid/2361/Default.aspx'); //skicka tillbaka till listan om inte id eller rätt sida finns
-				return false;
+				// window.location.replace('/katalog_4_2/tabid/2361/Default.aspx'); //skicka tillbaka till listan om inte id eller rätt sida finns
+				return true;
 			}
 		}
 		return retobj;
