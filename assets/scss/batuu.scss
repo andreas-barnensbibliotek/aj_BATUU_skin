@@ -61,8 +61,6 @@ a {
 .batuu-header-links{
     font-weight: bold;
     font-size: 14px;
-    margin-right: 1rem;
-    margin-bottom: 0;
 }
 
 .batuu-user::before{
@@ -90,7 +88,7 @@ a {
 .batuu-header-content{
     height: 150px;
     overflow: hidden;
-    display: none;
+   
 
     @include media-breakpoint-up(md) {
         display: block;
@@ -150,20 +148,23 @@ a {
             margin-left: 165px;
         }
     }
+
+
+
 }
 
-.scrollable-menu {
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
-}
+
 
 li.dropdown:hover > .dropdown-menu {
-    display: block;
     background-color: $gray-800;
- 
+
+    @include media-breakpoint-between(lg, xl) {   
+        display: block;
+        }    
+
     .dropdown-item{
         color: $white;
+        background-color: $gray-800;
 
         &:hover{
             background-color: $batuu-orange;
@@ -172,6 +173,13 @@ li.dropdown:hover > .dropdown-menu {
     }
 
 }
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+
 /*
 
 .dropdown-submenu {
@@ -323,6 +331,10 @@ li.dropdown:hover > .dropdown-menu {
 
 .page-link {
     color: $gray-600;
+
+    &:hover{
+        color: $batuu-green;
+    }
 }
 
 .page-item.active .page-link {
@@ -331,6 +343,13 @@ li.dropdown:hover > .dropdown-menu {
     border-color: $batuu-green;
 
 }
+
+
+.batuu-rating-footer{
+    background-color: $gray-400;
+    padding: 5px;
+}
+
 
 
 // JPlist /////////////////////////////////////////////////////////
