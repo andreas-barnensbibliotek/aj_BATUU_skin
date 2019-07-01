@@ -54,9 +54,9 @@ const BooklistObj = () => {
 		_storeObj.resetstorage();
 
 		render(url, function() {
-			jplist.resetContent(function() {
-				callback();
-			});
+			// jplist.resetContent(function() {
+			callback();
+			// });
 		});
 	}
 
@@ -83,9 +83,9 @@ const BooklistObj = () => {
 		_storeObj.resetstorage();
 
 		render(url, function() {
-			jplist.resetContent(function() {
-				callback();
-			});
+			// jplist.resetContent(function() {
+			callback();
+			// });
 		});
 	}
 

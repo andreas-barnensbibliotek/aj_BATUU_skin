@@ -8,7 +8,7 @@ const boklistEventHandler = () => {
 		$aj_katalog_groupId,
 		$aj_bb_pagination,
 		$aj_bb_searchbox,
-		$aj_bb_searchbtn;
+		$pagerstyle;
 	let blobj = BooklistObj();
 	let autoObj = autocompleteObj();
 
@@ -20,6 +20,7 @@ const boklistEventHandler = () => {
 		$aj_bb_pagination = $('#aj_bb_pagination');
 		$aj_bb_searchbox = $('#aj_bb_searchbox');
 		autoObj.initAuto();
+		$pagerstyle = $('.pagination');
 	}
 
 	function BoklistEvent(userid) {
@@ -27,9 +28,10 @@ const boklistEventHandler = () => {
 			let catid = $(this).attr('data-catid');
 			spinnerobj(true);
 
+			$pagerstyle.html('');
 			blobj.catSearch(catid, userid, function(data) {
 				//alert('funkar');
-				teststart();
+				jplistInitHandler();
 
 				spinnerobj(false);
 			});
@@ -38,11 +40,13 @@ const boklistEventHandler = () => {
 		});
 
 		$mainboklistcontainer.on('click', '#aj_bb_searchbtn', function(e) {
-			let searchstr = aj_bb_searchbox.val();
+			let searchstr = $aj_bb_searchbox.val();
 			spinnerobj(true);
 
+			$pagerstyle.html('');
 			blobj.fritextSearch(searchstr, userid, function(data) {
 				//alert('funkar');
+				jplistInitHandler();
 				spinnerobj(false);
 			});
 
@@ -65,11 +69,22 @@ const boklistEventHandler = () => {
 		// 	}
 		// });
 	}
-	function teststart() {
-		jplist.init({
-			storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
-			storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+	function jplistInitHandler() {
+		$mainboklistcontainer.jplist({
+			command: 'empty'
 		});
+
+		$mainboklistcontainer.jplist({
+			itemsBox: ' #aj_katalog_groupId',
+			itemPath: '.aj_jplist_item',
+			panelPath: '.jplist-panel',
+			storage: 'localstorage',
+			storageName: 'my-page-storage'
+		});
+		// jplist.init({
+		// 	storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
+		// 	storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+		// });
 		// jplist.refresh('pagination');
 	}
 	function init(userid, callback) {
@@ -77,7 +92,9 @@ const boklistEventHandler = () => {
 		BoklistEvent(userid);
 		spinnerobj(true);
 		blobj.init('6', userid, function(data) {
-			//alert('funkar');
+			$pagerstyle.html('');
+			jplistInitHandler();
+
 			spinnerobj(false);
 			callback();
 		});

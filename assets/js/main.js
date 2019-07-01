@@ -28,7 +28,7 @@ $(function() {
 		const element = $('#aj_katalog_groupId');
 	}
 });
-jplist.init({
-	storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
-	storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
-});
+// jplist.init({
+// 	storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
+// 	storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+// });
