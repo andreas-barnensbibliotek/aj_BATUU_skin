@@ -69,9 +69,9 @@ const BooklistObj = () => {
 		//reset ALL controls
 
 		render(url, function() {
-			jplist.resetContent(function() {
-				callback();
-			});
+			// jplist.resetContent(function() {
+			callback();
+			// });
 		});
 	}
 

@@ -52,7 +52,7 @@ const storagehandler = () => {
 
 	function resetStorage() {
 		_storage.remove('currentdata');
-		_session.remove('my-page-storage');
+		_storage.remove('my-page-storage');
 	}
 
 	return {
