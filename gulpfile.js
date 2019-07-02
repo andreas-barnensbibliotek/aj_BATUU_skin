@@ -35,6 +35,7 @@ gulp.task('jsconcatfiles', function () {
 			srcPath.jsbundle + '/jplist_pagination/jplist.core.min.js',
 			srcPath.jsbundle + '/jplist_pagination/jplist.pagination-bundle.min.js',
 			srcPath.jsbundle + '/jplist_pagination/jplist.bootstrap-pagination-bundle.min.js',
+			srcPath.jsbundle + '/jplist_pagination/jplist.bootstrap-filter-dropdown.min.js',
 			srcPath.jsbundle + '/jplist_pagination/jplist.sort-bundle.min.js',
 			srcPath.jsbundle + '/jplist_pagination/jplist.filter-dropdown-bundle.min.js',
 			srcPath.jsbundle + '/jplist_pagination/jplist.jquery-ui-bundle.min.js',

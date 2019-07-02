@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
 @import "reset";
 @import "bootstrap4/_main_bootstrap.scss";
+@import "./bootstrappagination";
 @import "autocomplete/autocomplete";
-@import "_bootstrappagination";
+
 
 /**
  * dropdown
@@ -538,10 +539,15 @@ li.dropdown:hover > .dropdown-menu {
     height: 0;
 }
 
+.jplist-items-per-page{
+    float:right;
+}
 
 
-
-
+.p-5-1 {
+    padding: 3rem !important;
+    padding-top:1rem !important;
+  }
 
   
 

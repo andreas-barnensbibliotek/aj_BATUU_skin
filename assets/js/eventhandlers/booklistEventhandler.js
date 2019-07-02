@@ -8,7 +8,10 @@ const boklistEventHandler = () => {
 		$aj_katalog_groupId,
 		$aj_bb_pagination,
 		$aj_bb_searchbox,
-		$pagerstyle;
+		$pagerstyle,
+		$aj_bb_filterbtn,
+		$aj_bb_filterblock,
+		$aj_bb_Nofilterblock;
 	let blobj = BooklistObj();
 	let autoObj = autocompleteObj();
 
@@ -19,6 +22,10 @@ const boklistEventHandler = () => {
 		$aj_katalog_groupId = $('#aj_katalog_groupId');
 		$aj_bb_pagination = $('#aj_bb_pagination');
 		$aj_bb_searchbox = $('#aj_bb_searchbox');
+		$aj_bb_filterbtn = $('#aj_bb_filterbtn');
+		$aj_bb_filterblock = $('#aj_bb_filterblock');
+		$aj_bb_Nofilterblock = $('#aj_bb_Nofilterblock');
+
 		autoObj.initAuto();
 		$pagerstyle = $('.pagination');
 	}
@@ -53,6 +60,20 @@ const boklistEventHandler = () => {
 			return false;
 		});
 
+		$mainboklistcontainer.on('click', '#aj_bb_filterbtn', function(e) {
+			let showfilter = $aj_bb_filterbtn.attr('data-visning');
+			if (showfilter === 'no') {
+				$aj_bb_filterblock.show();
+				$aj_bb_Nofilterblock.removeClass('col-md-12').addClass('col-md-9');
+				$aj_bb_filterbtn.attr('data-visning', 'ja');
+			} else {
+				$aj_bb_filterblock.hide();
+				$aj_bb_Nofilterblock.removeClass('col-md-9').addClass('col-md-12');
+				$aj_bb_filterbtn.attr('data-visning', 'no');
+			}
+
+			return false;
+		});
 		// $('#aj_bb_searchbox').autoComplete({
 		// 	resolver: 'custom',
 		// 	events: {
