@@ -100,7 +100,8 @@ const boklistEventHandler = () => {
 			itemPath: '.aj_jplist_item',
 			panelPath: '.jplist-panel',
 			storage: 'localstorage',
-			storageName: 'my-page-storage'
+			storageName: 'my-page-storage',
+			animateToTop: '#mainboklistcontainer'
 		});
 		// jplist.init({
 		// 	storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
