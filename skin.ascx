@@ -64,9 +64,24 @@
     <!-- #############################      HEADER ENDS        ################################################## -->
 
     <!-- content -->
-
-    <div id="contentPane" runat="server"></div>
-
+     <!-- Navigerings breadcrumb START -->
+         <div class="row mx-n2">
+             <div class="col-12">
+                 <div class="menybreadcrumb">
+                     <a href="http://www.kulturivast.se/kulturkatalogen-vast">START</a> | <dnn:BREADCRUMB ID="dnnBreadcrumb" runat="server" CssClass="mbc_navlinklist" RootLevel="0" Separator=" | " HideWithNoBreadCrumb="false" />           
+                 </div>
+             </div>
+         </div>
+         <!-- Navigerings breadcrumb END -->
+    
+        <div id="searchPane" runat="server"></div>
+    
+    
+        <div id="fullwidhtPane" runat="server"></div>
+    
+    
+        <div id="contentPane" runat="server"></div>
+    
     <!-- Footer -->
 
     <div class="row batuu-footer mx-n2">

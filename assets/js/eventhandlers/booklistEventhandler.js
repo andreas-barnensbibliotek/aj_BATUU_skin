@@ -16,7 +16,7 @@ const boklistEventHandler = () => {
 	let autoObj = autocompleteObj();
 
 	function bindDom() {
-		$mainboklistcontainer = $('#mainboklistcontainer');
+		$mainboklistcontainer = $('.mainboklistcontainer');
 		$spinner = $('.bb_aj_spinner');
 		$catnav = $('.catNav');
 		$aj_katalog_groupId = $('#aj_katalog_groupId');

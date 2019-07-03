@@ -19,10 +19,14 @@ const queryHandler = () => {
 			if (index > 0) {
 				urlParams.tabid = sPageURL[index + 1];
 			}
-			// index = sPageURL.indexOf('addarrtab');
-			// if (index > 0) {
-			// 	urlParams.addarrtab = sPageURL[index + 1];
-			// }
+			index = sPageURL.indexOf('srh');
+			if (index > 0) {
+				urlParams.search = sPageURL[index + 1];
+			}
+			index = sPageURL.indexOf('shtyp');
+			if (index > 0) {
+				urlParams.addarrtab = sPageURL[index + 1];
+			}
 			index = sPageURL.indexOf('id');
 			if (index > 0) {
 				urlParams.id = sPageURL[index + 1];
