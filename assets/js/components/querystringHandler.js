@@ -1,6 +1,10 @@
+import displayHandler from '../eventhandlers/controlDisplayHandler';
+
 //////// History handler
 //// ta hand om querystring parametrar och lagra dom i ett jsonobject urlparam.
 const queryHandler = () => {
+	let displayobj = displayHandler();
+
 	function checkparamsinurl(urlParams) {
 		let match,
 			pl = /\+/g, // Regex for replacing addition symbol with a space
@@ -21,11 +25,11 @@ const queryHandler = () => {
 			}
 			index = sPageURL.indexOf('srh');
 			if (index > 0) {
-				urlParams.search = sPageURL[index + 1];
+				urlParams.srh = sPageURL[index + 1];
 			}
 			index = sPageURL.indexOf('shtyp');
 			if (index > 0) {
-				urlParams.addarrtab = sPageURL[index + 1];
+				urlParams.shtyp = sPageURL[index + 1];
 			}
 			index = sPageURL.indexOf('id');
 			if (index > 0) {
@@ -38,17 +42,8 @@ const queryHandler = () => {
 	function chkpage(urlParams) {
 		// tabid 2365 detaljvy http://localdev.kivdev.se/katalog_4_2/katalogenv5_detail/tabid/2365/Default.aspx?id=2
 		// tabid 2361 listvy
-		let retobj = false;
-		if (urlParams.tabid == '2365') {
-			if (urlParams.id > 0) {
-				console.log('detaljvy');
-				retobj = true;
-			} else {
-				// window.location.replace('/katalog_4_2/tabid/2361/Default.aspx'); //skicka tillbaka till listan om inte id eller rätt sida finns
-				return true;
-			}
-		}
-		return retobj;
+
+		return displayobj.checkToDisplay(urlParams);
 	}
 
 	return {

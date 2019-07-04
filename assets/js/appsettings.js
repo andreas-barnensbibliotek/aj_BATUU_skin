@@ -31,7 +31,7 @@ const appconfig = () => {
 		return (
 			_apiserver +
 			'/Api_v3.1/katalogen/typ/amne/searchval/' +
-			catid +
+			amnid +
 			'/val/' +
 			userid +
 			_apidevkeyend

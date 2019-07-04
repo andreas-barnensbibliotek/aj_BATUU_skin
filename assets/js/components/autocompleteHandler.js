@@ -1,5 +1,6 @@
 import serviceobj from '../service/apiServiceHandler';
 import BooklistObj from '../components/booklisthandler';
+import displayHandler from '../eventhandlers/controlDisplayHandler';
 import appconfigObj from '../appsettings';
 
 // autocomplete funktion dokument: goodies.pixabay.com/javascript/auto-complete/demo.html
@@ -8,6 +9,10 @@ const autoCompleteHandler = () => {
 	let service = serviceobj();
 	let appconf = appconfigObj();
 	let blobj = BooklistObj();
+	let displayobj = displayHandler();
+	let urlParams = {
+		shtyp: '0'
+	};
 
 	function init() {
 		let auto = new autoComplete({
@@ -57,22 +62,15 @@ const autoCompleteHandler = () => {
 				let userid = appconf.userinfo.userid;
 				$spinner.show();
 
+				urlParams.shtyp = 'freeserch';
+				displayobj.checkToDisplay(urlParams);
+
 				blobj.fritextSearch(searchstr, userid, function(data) {
 					//alert('funkar');
 					$spinner.hide();
 				});
 
 				return false;
-
-				// alert(
-				// 	'Item "' +
-				// 		item.getAttribute('data-langname') +
-				// 		' (' +
-				// 		item.getAttribute('data-lang') +
-				// 		')" selected by ' +
-				// 		(e.type == 'keydown' ? 'pressing enter' : 'mouse click') +
-				// 		'.'
-				// );
 			}
 		});
 	}

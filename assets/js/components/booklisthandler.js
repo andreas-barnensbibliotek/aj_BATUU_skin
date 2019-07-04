@@ -36,7 +36,7 @@ const BooklistObj = () => {
 			//refresh jPList content
 			//jplist.resetContent(function() {
 			//add element to the group
-			// $group.html('');
+			$group.html('');
 			$group.html(data);
 
 			callback(true);
