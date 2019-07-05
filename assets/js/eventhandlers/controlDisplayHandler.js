@@ -18,6 +18,7 @@ const displayHandler = () => {
 		switch (urlParams.tabid) {
 			case '2365': //detaljvyn
 				console.log('visa Detaljsidan');
+				retobj = true;
 				break;
 
 			default:

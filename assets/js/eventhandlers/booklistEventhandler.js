@@ -134,6 +134,7 @@ const boklistEventHandler = () => {
 	}
 
 	function jplistReset() {
+		$aj_bb_searchbox.val('');
 		$mainboklistcontainer.jplist({
 			command: 'empty'
 		});

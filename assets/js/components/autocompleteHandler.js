@@ -63,14 +63,12 @@ const autoCompleteHandler = () => {
 				$spinner.show();
 
 				urlParams.shtyp = 'freeserch';
-				displayobj.checkToDisplay(urlParams);
-
-				blobj.fritextSearch(searchstr, userid, function(data) {
-					//alert('funkar');
-					$spinner.hide();
-				});
-
-				return false;
+				// displayobj.checkToDisplay(urlParams);
+				$('#aj_bb_searchbox').val(searchstr);
+				// blobj.fritextSearch(searchstr, userid, function(data) {
+				// 	$spinner.hide();
+				// 	return false;
+				// });
 			}
 		});
 	}
