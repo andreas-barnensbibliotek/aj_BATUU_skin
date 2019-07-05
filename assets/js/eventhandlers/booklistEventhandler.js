@@ -47,7 +47,7 @@ const boklistEventHandler = () => {
 			urlParams.shtyp = catid;
 
 			displayobj.checkToDisplay(urlParams);
-
+			window.history.pushState('', 'titletest', '?shtyp=cat&srh=' + catid);
 			$pagerstyle.html('');
 			jplistReset();
 

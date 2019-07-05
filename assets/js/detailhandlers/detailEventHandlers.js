@@ -1,16 +1,13 @@
 const detailHandler = () => {
-    
-    function bindDOM(){
-    }
+	function bindDOM() {}
 
-    function init(){
-        
-    }
+	function init(id, userid) {
+		console.log('hämta details via id:' + id);
+	}
 
-    return {
-        init: init
-    }
-
-}
+	return {
+		init: init
+	};
+};
 
 export default detailHandler;
