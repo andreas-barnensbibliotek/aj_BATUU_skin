@@ -1,6 +1,6 @@
 const storagehandler = () => {
 	let _storage = Storages.localStorage;
-	console.log('storage: ' + _storage);
+	//console.log('storage: ' + _storage);
 	let _session = Storages.sessionStorage;
 
 	// LOCALSTORAGE
@@ -8,48 +8,60 @@ const storagehandler = () => {
 	// om användaren går till detalj skall senaste sökningen visas.
 
 	function SetSession() {
-		_session.set('Session', 'true');
+		_session.set('session', 'true');
 		console.log('session true');
 	}
 
-	function isSessionSet() {
-		if (_session.get('Session')) {
-			console.log('is session true');
+	function chkIfsessionActive() {
+		let sess = _session.get('session');
+		if (sess) {
 			return true;
-		}
-		console.log('is session false');
-		return false;
-	}
-
-	function localstorageHandler(stdata) {
-		if (stdata) {
-			console.log('currentdata: ' + stdata);
-			_storage.set('currentdata', stdata);
 		} else {
-			stdata = _storage.get('currentdata');
-			console.log('currentdata from storage: ' + stdata);
-		}
-		return stdata;
-	}
-
-	function checkIfDataisInStorage() {
-		if (isSessionSet()) {
-			let currdata = _storage.get('currentdata');
-			console.log('currentdata nu: ' + currdata);
-			if (currdata) {
-				return currdata;
-			}
-		} else {
-			_storage.removeAll();
-			console.log('RemoveALL currentdata');
 			return false;
 		}
 	}
 
+	function isCurrentdataSet() {
+		let tmpdata = _storage.get('currentdata');
+		if (tmpdata) {
+			console.log('currentdata =  true DATA Finns i localstorage');
+			return true;
+		}
+		console.log('currentdata = false Det finns ingen data');
+		return false;
+	}
+
+	function addDataToStorageHandler(stdata) {
+		if (stdata) {
+			// _storage.removeAll();
+			console.log('ADD currentdata to storage: ' + stdata);
+			_storage.remove('currentdata');
+			_storage.set('currentdata', stdata);
+		}
+		return stdata;
+	}
+
+	function getDataFromStorageHandler() {
+		let stdata;
+		if (isCurrentdataSet()) {
+			stdata = _storage.get('currentdata');
+			console.log('GET currentdata from storage: ' + stdata);
+		}
+		return stdata;
+	}
+
+	function resetStorage() {
+		_storage.remove('currentdata');
+		_storage.remove('my-page-storage');
+	}
+
 	return {
-		checkStorageData: checkIfDataisInStorage,
-		currentdata: localstorageHandler,
-		setStorageSession: SetSession
+		checkStorageData: isCurrentdataSet,
+		addDataToStorage: addDataToStorageHandler,
+		getDataFromStorage: getDataFromStorageHandler,
+		setSession: SetSession,
+		chkifSession: chkIfsessionActive,
+		resetstorage: resetStorage
 	};
 };
 

@@ -1,4 +1,6 @@
 import serviceobj from '../service/apiServiceHandler';
+import BooklistObj from '../components/booklisthandler';
+import displayHandler from '../eventhandlers/controlDisplayHandler';
 import appconfigObj from '../appsettings';
 
 // autocomplete funktion dokument: goodies.pixabay.com/javascript/auto-complete/demo.html
@@ -6,6 +8,11 @@ import appconfigObj from '../appsettings';
 const autoCompleteHandler = () => {
 	let service = serviceobj();
 	let appconf = appconfigObj();
+	let blobj = BooklistObj();
+	let displayobj = displayHandler();
+	let urlParams = {
+		shtyp: '0'
+	};
 
 	function init() {
 		let auto = new autoComplete({
@@ -16,7 +23,7 @@ const autoCompleteHandler = () => {
 				try {
 					let url = appconf.api.autocomplete.getbyAuto(term, 5);
 
-					let getdata = service.Getjson(url, function(sevicedata) {
+					let getdata = service.GetjsonAuto(url, function(sevicedata) {
 						let choices = sevicedata.BookList;
 						let suggestions = [];
 						let i;
@@ -50,15 +57,18 @@ const autoCompleteHandler = () => {
 				);
 			},
 			onSelect: function(e, term, item) {
-				alert(
-					'Item "' +
-						item.getAttribute('data-langname') +
-						' (' +
-						item.getAttribute('data-lang') +
-						')" selected by ' +
-						(e.type == 'keydown' ? 'pressing enter' : 'mouse click') +
-						'.'
-				);
+				let $spinner = $('.bb_aj_spinner');
+				let searchstr = item.getAttribute('data-langname');
+				let userid = appconf.userinfo.userid;
+				$spinner.show();
+
+				urlParams.shtyp = 'freeserch';
+				// displayobj.checkToDisplay(urlParams);
+				$('#aj_bb_searchbox').val(searchstr);
+				// blobj.fritextSearch(searchstr, userid, function(data) {
+				// 	$spinner.hide();
+				// 	return false;
+				// });
 			}
 		});
 	}

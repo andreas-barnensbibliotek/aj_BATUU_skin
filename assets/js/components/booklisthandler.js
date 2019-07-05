@@ -1,14 +1,13 @@
 // let _ = require('lodash');
-
-import apiServiceHandler from '../service/apiServiceHandler';
 import storageHandlerObj from '../components/storagehandler';
+import apiServiceHandler from '../service/apiServiceHandler';
 import appconfigObj from '../appsettings';
 
 const BooklistObj = () => {
 	let $group = '';
 	let _apiObj = apiServiceHandler();
 	let _appconfig = appconfigObj();
-	let storeObj = storageHandlerObj();
+	let _storeObj = storageHandlerObj();
 
 	function bind() {
 		//find the elements group
@@ -35,11 +34,13 @@ const BooklistObj = () => {
 		//create a new element
 		const div = serviceApi(url, function(data) {
 			//refresh jPList content
-			jplist.resetContent(function() {
-				//add element to the group
-				$group.html(data);
-				callback(true);
-			});
+			//jplist.resetContent(function() {
+			//add element to the group
+
+			$group.html(data);
+
+			callback(true);
+			//});
 		});
 		//'<div data-jplist-item><div class="name">Andreas Josefsson</div></div><div data-jplist-item><div class="name">Ida-Stina Josefsson</div></div><div data-jplist-item><div class="name">Nils-Magnus Josefsson</div></div>                ';
 	}
@@ -49,8 +50,13 @@ const BooklistObj = () => {
 		//debug
 		userid = _hanteraUserid(userid);
 		let url = _appconfig.api.boklistor.boklistbyFritext(searchstr, userid);
+
+		_storeObj.resetstorage();
+
 		render(url, function() {
-			callback(data);
+			// jplist.resetContent(function() {
+			callback();
+			// });
 		});
 	}
 
@@ -58,8 +64,14 @@ const BooklistObj = () => {
 		userid = _hanteraUserid(userid);
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.boklistor.boklistbyCatID(catid, userid);
+
+		_storeObj.resetstorage();
+		//reset ALL controls
+
 		render(url, function() {
+			// jplist.resetContent(function() {
 			callback();
+			// });
 		});
 	}
 
@@ -67,8 +79,13 @@ const BooklistObj = () => {
 		userid = _hanteraUserid(userid);
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.boklistor.boklistbyAmneID(amnid, userid);
+
+		_storeObj.resetstorage();
+
 		render(url, function() {
+			// jplist.resetContent(function() {
 			callback();
+			// });
 		});
 	}
 
@@ -76,13 +93,18 @@ const BooklistObj = () => {
 		userid = _hanteraUserid(userid);
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.autocomplete.getbyAuto(searchstr);
+		// _storeObj.resetstorage();
+
 		render(url, function() {
+			// jplist.resetContent(function() {
 			callback();
+			// });
 		});
 	}
 
 	function init(catid, userid, callback) {
-		storeObj.setStorageSession();
+		userid = _hanteraUserid(userid);
+		_appconfig.userinfo.userid = userid;
 		//debug lägg i appsettings.js
 		let url = _appconfig.api.boklistor.boklistbyCatID(catid, userid);
 		render(url, function() {

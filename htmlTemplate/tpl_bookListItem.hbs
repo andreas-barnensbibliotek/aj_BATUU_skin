@@ -1,26 +1,29 @@
 <!-- Loop start -->
-  {{#each Bookitems}}
-<div class="col-md-4" data-jplist-item >
-    <div class="card mb-4 box-shadow aj_bb_year{{Published}} aj_bb_easy_{{Easyread}}" >
-      <div class="{{#each Categories}}aj_bb_cat_{{CategoryID}} {{/each}} "></div>
-        <img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%;
-            display: block;"
-            src={{BokomslagURL}}
-            data-holder-rendered="true">
-        <div class="card-body">
-            <p class="card-text name">{{title}}</p>
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm
-                        btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm
-                        btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+{{#each Bookitems}}
+
+<div class="col d-flex align-items-top p-4 batuu-background-row-item col-md-3 aj_jplist_item" >
+    <a href="#">
+        <div class="text-center aj_bb_year{{Published}} aj_bb_easy_{{Easyread}}">
+            <span class="{{#each Categories}}aj_bb_cat_{{CategoryID}} {{/each}}"></span>
+            <img src="{{BokomslagURL}}" alt="{{title}}" class="img-thumbnail">
+            <p class="font-weight-bold my-1 book-title">{{title}}</p>
+            <p class="font-weight-light my-0 author">{{#each Forfattare}} {{namn}} {{/each}}</p>
+        </div>
+    </a>
+    <div class="align-self-start">
+        <div class="dropdown dropleft">
+            <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">G&aring; till boken</a>
+                <a class="dropdown-item" href="#">Skriv boktips</a>
+                <a class="dropdown-item" href="#">L&auml;ser denna just nu</a>
+                <a class="dropdown-item" href="#">Ta bort fr&aring;n listan</a>
             </div>
         </div>
     </div>
 </div>
+
 {{/each}}
