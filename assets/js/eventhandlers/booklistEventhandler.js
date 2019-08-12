@@ -14,6 +14,7 @@ const boklistEventHandler = () => {
 		$aj_bb_filterblock,
 		$aj_bb_Nofilterblock,
 		$bb_aj_spinnerHeader,
+		$bb_aj_searchbtn,
 		$bb_aj_spinnerHeaderWorks;
 
 	let urlParams = {
@@ -35,29 +36,42 @@ const boklistEventHandler = () => {
 		$aj_bb_Nofilterblock = $('#aj_bb_Nofilterblock');
 		$bb_aj_spinnerHeader = $('.bb_aj_spinnerHeader');
 		$bb_aj_spinnerHeaderWorks = $('.bb_aj_spinnerHeaderWorks');
-
+		$bb_aj_searchbtn = document.getElementById('aj_bb_searchbtn');
 		autoObj.initAuto();
 		$pagerstyle = $('.pagination');
 	}
 
 	function BoklistEvent(userid) {
+		document
+			.getElementById('aj_bb_searchbox')
+			.addEventListener('keyup', function(event) {
+				event.preventDefault();
+				if (event.keyCode === 13) {
+					$bb_aj_searchbtn.click();
+					$bb_aj_searchbtn.focus();
+				}
+			});
+
 		$mainboklistcontainer.on('click', '.catNav', function(e) {
 			let catid = $(this).attr('data-catid');
+			console.log('catid= ' + catid);
 			spinnerobj(true);
 			urlParams.shtyp = catid;
 
 			displayobj.checkToDisplay(urlParams);
 			window.history.pushState('', 'titletest', '?shtyp=cat&srh=' + catid);
 			$pagerstyle.html('');
-			jplistReset();
 
-			blobj.catSearch(catid, userid, function(data) {
-				//alert('funkar');
+			if (catid != 0) {
+				jplistReset();
 
-				jplistInitHandler();
-				spinnerobj(false);
-			});
+				blobj.catSearch(catid, userid, function(data) {
+					//alert('funkar');
 
+					jplistInitHandler();
+					spinnerobj(false);
+				});
+			}
 			return false;
 		});
 
@@ -146,7 +160,7 @@ const boklistEventHandler = () => {
 		spinnerobj(true);
 		blobj.init('6', userid, function(data) {
 			$pagerstyle.html('');
-			jplistInitHandler();
+			//jplistInitHandler();
 			spinnerobj(false);
 			callback();
 		});
