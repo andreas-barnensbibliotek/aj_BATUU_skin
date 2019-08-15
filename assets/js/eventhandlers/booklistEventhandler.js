@@ -160,7 +160,7 @@ const boklistEventHandler = () => {
 		spinnerobj(true);
 		blobj.init('6', userid, function(data) {
 			$pagerstyle.html('');
-			//jplistInitHandler();
+			jplistInitHandler();
 			spinnerobj(false);
 			callback();
 		});

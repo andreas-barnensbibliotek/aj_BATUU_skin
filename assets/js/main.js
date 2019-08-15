@@ -15,9 +15,11 @@ $(function() {
 
 	if (qHandler.checkpage(urlParams)) {
 		console.log('detaljvy');
+
 		detailObj.init(urlParams.id, _userid);
 	} else {
 		blEvent.init(_userid, function() {});
+
 		console.log('listvy');
 	}
 });

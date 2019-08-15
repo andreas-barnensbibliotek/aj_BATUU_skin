@@ -37,15 +37,8 @@ const appconfig = () => {
 			_apidevkeyend
 		);
 	};
-	let _fn_byfritext = function(searchstr, userid) {
-		return (
-			_apiserver +
-			'/Api_v3.1/katalogen/typ/search/searchval/' +
-			searchstr +
-			'/val/' +
-			userid +
-			_apidevkeyend
-		);
+	let _fn_byfritext = function() {
+		return _apiserver + '/Api_v3.1/katalogen/typ/search/' + _apidevkeyend;
 	};
 	let _fn_autocomplete = function(searchstr, antal) {
 		return (

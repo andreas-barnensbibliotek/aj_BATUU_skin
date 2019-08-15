@@ -28,6 +28,14 @@ const BooklistObj = () => {
 		});
 	}
 
+	function servicePostApi(url, data, callback) {
+		_apiObj.Postjson(url, data, function(data) {
+			gethbTmpl(data, function(ret) {
+				callback(ret);
+			});
+		});
+	}
+
 	function render(url, callback) {
 		bind();
 
@@ -44,16 +52,35 @@ const BooklistObj = () => {
 		});
 		//'<div data-jplist-item><div class="name">Andreas Josefsson</div></div><div data-jplist-item><div class="name">Ida-Stina Josefsson</div></div><div data-jplist-item><div class="name">Nils-Magnus Josefsson</div></div>                ';
 	}
+	function renderPost(url, postdata, callback) {
+		bind();
 
+		//create a new element
+		const div = servicePostApi(url, postdata, function(data) {
+			//refresh jPList content
+			//jplist.resetContent(function() {
+			//add element to the group
+
+			$group.html(data);
+
+			callback(true);
+			//});
+		});
+		//'<div data-jplist-item><div class="name">Andreas Josefsson</div></div><div data-jplist-item><div class="name">Ida-Stina Josefsson</div></div><div data-jplist-item><div class="name">Nils-Magnus Josefsson</div></div>                ';
+	}
 	///////////Publika funktioner/////////////////////
 	function fritextSearch(searchstr, userid, callback) {
 		//debug
-		userid = _hanteraUserid(userid);
-		let url = _appconfig.api.boklistor.boklistbyFritext(searchstr, userid);
+		let Postdata = {
+			Searchstr: searchstr,
+			userid: userid
+		};
+
+		let url = _appconfig.api.boklistor.boklistbyFritext();
 
 		_storeObj.resetstorage();
 
-		render(url, function() {
+		renderPost(url, Postdata, function() {
 			// jplist.resetContent(function() {
 			callback();
 			// });
