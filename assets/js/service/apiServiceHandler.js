@@ -62,6 +62,28 @@ const apiServiceHandler = () => {
 			}
 		}
 	}
+	function GetJsonPostDataFromStorage(url, postdata, callback) {
+		if (!storeObj.chkifSession()) {
+			PostJsonData(url, postdata, function(data) {
+				storeObj.addDataToStorage(data);
+				storeObj.setSession();
+				callback(data);
+			});
+		} else {
+			let currdata = storeObj.getDataFromStorage();
+
+			if (currdata) {
+				callback(currdata);
+			} else {
+				PostJsonData(url, postdata, function(data) {
+					storeObj.addDataToStorage(data);
+					callback(data);
+				});
+				console.log('hämta ny Postdata');
+			}
+		}
+	}
+
 	function GetJsonDataAutocomplete(url, callback) {
 		GetJsonData(url, function(data) {
 			storeObj.addDataToStorage(data);
@@ -73,7 +95,7 @@ const apiServiceHandler = () => {
 	return {
 		Getjson: GetJsonDataFromStorage,
 		GetjsonAuto: GetJsonDataAutocomplete,
-		Postjson: PostJsonData
+		Postjson: GetJsonPostDataFromStorage
 	};
 };
 

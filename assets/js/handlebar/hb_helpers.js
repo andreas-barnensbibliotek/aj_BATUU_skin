@@ -1,4 +1,3 @@
-module.exports = function(val, options) {
-	console.log('val=' + _.isEmpty(val));
+module.exports = function(val, options) {	
 	return options.fn(_.isEmpty(val));
 };

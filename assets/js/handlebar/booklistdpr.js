@@ -1,5 +1,9 @@
 module.exports = function(userbooklistobj, bookid) {
-	return booklistHandler.dropdownhtml(userbooklistobj, bookid);
+	if (_.isEmpty(userbooklistobj)) {
+		return '';
+	} else {
+		return booklistHandler.dropdownhtml(userbooklistobj, bookid);
+	}
 };
 
 let booklistHandler = (function() {
@@ -9,10 +13,6 @@ let booklistHandler = (function() {
 		for (const itm of Object.keys(tmpbooklist)) {
 			if (tmpbooklist[itm].Bookid == bookid) {
 				ret = true;
-				// console.log(
-				// 	'HITTAD!!!!----------------------------------------------------------------------' +
-				// 		tmpbooklist[itm].title
-				// );
 			}
 		}
 		return ret;
@@ -37,7 +37,7 @@ let booklistHandler = (function() {
 		retstrlinks +=
 			'<a class="dropdown-item " href="#">L&auml;ser denna just nu</a>';
 		retstrlinks +=
-			'<div class="addtobooklistHeader"><b>L&auml;gg till i boklista</b></div>';
+			'<div class="addtobooklistHeader"><b>Mina boklistor</b></div>';
 
 		let retstrBooklist = '';
 		if (userbooklistobj) {
@@ -53,8 +53,12 @@ let booklistHandler = (function() {
 
 				if (booklistHandler.isBookInList(tmpbooklist, bookid)) {
 					// console.log('Bok i listan: ' + key);
-					retstrBooklist += '->';
+					retstrBooklist +=
+						'<div class="btn btn-success btn-circle-drp"><i class="fas fa-check"></i></div>';
 					visa = true;
+				} else {
+					retstrBooklist +=
+						'<div class="btn btn-success btn-circle-drp hidedrpchkimg" ><i class="fas fa-check"></i></div>';
 				}
 
 				retstrBooklist += userbooklistobj[key].Booklistname + '</a>';
@@ -62,6 +66,7 @@ let booklistHandler = (function() {
 		}
 
 		let retstrbtnIkon = '';
+		//visa länk med markering om bok finns i listan
 		if (visa == true) {
 			retstrbtnIkon =
 				'<button class="btn btn-success btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" title="Finns i min boklista" aria-haspopup="true" aria-expanded="false">';
