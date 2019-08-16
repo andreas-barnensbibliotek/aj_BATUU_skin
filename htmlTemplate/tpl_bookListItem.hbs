@@ -2,28 +2,18 @@
 {{#each Bookitems}}
 
 <div class="col d-flex align-items-top p-4 batuu-background-row-item col-md-3 aj_jplist_item" >
-    <a href="#">
+    <a href="/katalog_4_2/tabid/2365/Default.aspx?id={{Bookid}}">
         <div class="text-center aj_bb_year{{Published}} aj_bb_easy_{{Easyread}}">
             <span class="{{#each Categories}}aj_bb_cat_{{CategoryID}} {{/each}}"></span>
             <img src="{{BokomslagURL}}" alt="{{title}}" class="img-thumbnail">
             <p class="font-weight-bold my-1 book-title">{{title}}</p>
             <p class="font-weight-light my-0 author">{{#each Forfattare}} {{namn}} {{/each}}</p>
         </div>
-    </a>
-    <div class="align-self-start">
-        <div class="dropdown dropleft">
-            <button class="btn btn-light btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">G&aring; till boken</a>
-                <a class="dropdown-item" href="#">Skriv boktips</a>
-                <a class="dropdown-item" href="#">L&auml;ser denna just nu</a>
-                <a class="dropdown-item" href="#">Ta bort fr&aring;n listan</a>
-            </div>
-        </div>
-    </div>
+    </a>    
+      
+    {{#booklistdpr @root.Userbooklist Bookid}} {{/booklistdpr}}
+   
 </div>
 
 {{/each}}
+
