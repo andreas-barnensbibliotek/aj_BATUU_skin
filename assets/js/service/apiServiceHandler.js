@@ -84,6 +84,12 @@ const apiServiceHandler = () => {
 		}
 	}
 
+	function updateGetJson(url, callback) {
+		GetJsonData(url, function(data) {
+			callback(data);
+		});
+	}
+
 	function GetJsonDataAutocomplete(url, callback) {
 		GetJsonData(url, function(data) {
 			storeObj.addDataToStorage(data);
@@ -95,6 +101,7 @@ const apiServiceHandler = () => {
 	return {
 		Getjson: GetJsonDataFromStorage,
 		GetjsonAuto: GetJsonDataAutocomplete,
+		UpdgetJson: updateGetJson,
 		Postjson: GetJsonPostDataFromStorage
 	};
 };

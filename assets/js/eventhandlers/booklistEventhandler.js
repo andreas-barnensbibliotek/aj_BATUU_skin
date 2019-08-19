@@ -128,9 +128,9 @@ const boklistEventHandler = () => {
 			return false;
 		});
 
-		$mainboklistcontainer.on('click', '#aj_bb_btnStart', function(e) {
-			return false;
-		});
+		// $mainboklistcontainer.on('click', '#aj_bb_btnStart', function(e) {
+		// 	return false;
+		// });
 
 		$mainboklistcontainer.on('click', '.booklistHandler', function(e) {
 			let $curBlObj = $(this);
@@ -143,11 +143,13 @@ const boklistEventHandler = () => {
 
 			/// lägg till och tabort icon
 			if ($curblchkIcon.hasClass('hidedrpchkimg')) {
-				// avbocka vqld boklista i Boklistningen
+				// avbocka vald boklista i Boklistningen
 				$curblchkIcon.removeClass('hidedrpchkimg');
 			} else {
 				$curblchkIcon.addClass('hidedrpchkimg');
 			}
+
+			// drpd_booklistChecker($curBlObj);
 
 			/// kolla om yttre ikon skall ändras
 			let $bookitemcontainer = $curBlObj.parent().parent();
@@ -174,6 +176,13 @@ const boklistEventHandler = () => {
 
 			return false;
 		});
+
+		$mainboklistcontainer.on('click', '.aj_bb_readsnow', function(e) {
+			let bookid = $(this).attr('data-currbookid');
+			blobj.laserjustnu(bookid, function() {
+				alert('läser just nu');
+			});
+		});
 	}
 	function jplistInitHandler() {
 		$mainboklistcontainer.jplist({
@@ -191,7 +200,7 @@ const boklistEventHandler = () => {
 	}
 
 	function jplistReset() {
-		$aj_bb_searchbox.val('');
+		// $aj_bb_searchbox.val('');
 		$mainboklistcontainer.jplist({
 			command: 'empty'
 		});

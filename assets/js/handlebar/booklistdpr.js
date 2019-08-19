@@ -31,11 +31,13 @@ let booklistHandler = (function() {
 			bookid +
 			'" >';
 		retstrlinks +=
-			'<a class="dropdown-item" href="/Krypin/bk_aj_boktips_Krypin/tabid/1354/Default.aspx?bookid=' +
+			'<a class="dropdown-item" href="/Krypin/bk_aj_boktips_Krypin/tabid/1431/Default.aspx?bookid=' +
 			bookid +
 			'">Skriv boktips</a>';
 		retstrlinks +=
-			'<a class="dropdown-item " href="#">L&auml;ser denna just nu</a>';
+			'<a class="dropdown-item aj_bb_readsnow" data-currbookid="' +
+			bookid +
+			'"href="#">L&auml;ser denna just nu</a>';
 		retstrlinks +=
 			'<div class="addtobooklistHeader"><b>Mina boklistor</b></div>';
 

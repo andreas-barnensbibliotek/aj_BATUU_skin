@@ -129,6 +129,16 @@ const BooklistObj = () => {
 		});
 	}
 
+	function laserjustnu(bookid, callback) {
+		let usrid = _appconfig.userinfo.userid;
+		let curuserid = _hanteraUserid(usrid);
+		let url = _appconfig.api.lasernu(curuserid, bookid);
+		_apiObj.UpdgetJson(url, function(data) {
+			callback();
+			console.log('laser just nu uppdaterad!');
+		});
+	}
+
 	function init(catid, userid, callback) {
 		userid = _hanteraUserid(userid);
 		_appconfig.userinfo.userid = userid;
@@ -153,6 +163,7 @@ const BooklistObj = () => {
 		catSearch: catSearch,
 		amnSearch: amnSearch,
 		autocomplete: autocomplete,
+		laserjustnu: laserjustnu,
 		alfvalue: 'This is an simple value from hello test!'
 	};
 };
