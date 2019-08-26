@@ -15,6 +15,8 @@ $batuu-green:     #95C024 ; // Green #95C024
 $batuu-teak:      #AA9256 ; // Brown #AA9256
 $batuu-vanilla:   #CCBE9B ;  //Vanilla #CCBE9B
 $batuu-grey:      #6c757d ;
+$batuu-lightbrown:#976b41 ;
+$batuu-brown:     #664924 ;
 
 $link-visited: darken($batuu-orange, 20% );
 
@@ -33,7 +35,9 @@ $theme-colors: map-merge((
   "batuu-yellow":      $batuu-yellow,
   "batuu-green":       $batuu-green,
   "batuu-teak":        $batuu-teak,
-  "batuu-vanilla":     $batuu-vanilla
+  "batuu-vanilla":     $batuu-vanilla,
+  "batuu-lightbrown":  $batuu-lightbrown,
+  "batuu-brown":       $batuu-brown
 ), $theme-colors);
 
 

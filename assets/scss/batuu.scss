@@ -9,6 +9,8 @@
 /**
  * dropdown
  */
+#barnensbiblCurrentUserid{display: none;}
+#ReadspeakerBox{display: none;}
 
 .bred{
     border: 1px solid red;
@@ -19,6 +21,10 @@
     background-image: url("./images/Nalle_Barnensbibliotek_BG.png");
     background-repeat: no-repeat;
     background-position: center top; 
+}
+
+#mainboklistcontainer{
+    background-image: linear-gradient(snow, white);
 }
 
 a {
@@ -88,12 +94,21 @@ a {
 
 }
 
+.topheaderbg.head_bokhylla {
+    background-image: url("/Portals/_default/skins/bb_BATUU/images/bokhylla.png"); 
+}
+#searchboxen .form-control-sm{
+    padding: .5rem !important;
+}  
+.aj_searchbox a{
+    color:white !important;
+  }
 .batuu-header-content{
     height: 150px;
     overflow: hidden;
    
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(sm) {
         display: block;
     }
 
@@ -239,14 +254,24 @@ li.dropdown:hover > .dropdown-menu {
 .batuu-background-row-item:hover{
     background-color: rgba( $white, .4 );
 }
-
-.batuu-footer{
-    height: 330px !important;
-    max-height: 380px;
-    padding: 5px;
-    background-color: $batuu-yellow;
+.batuu-background-row-green{
+    background-color: #95C024;
 }
 
+.batuu-footer{
+    
+    max-height:180px !important;
+    max-height: 380px;
+    padding: 2rem 1rem;
+    background-color: $batuu-brown;
+    border: 5px solid $batuu-lightbrown;
+}
+
+#footikonimg{
+    img{
+        max-width:100%;
+    }
+}
 
 
 @include media-breakpoint-between(md, xl) {   
@@ -564,5 +589,108 @@ li.dropdown:hover > .dropdown-menu {
 
   
 
+// fix för small size screen -> put it in bootstrap library?
+@media (max-width: 576px) {
+    .col-sm {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%
+    }
 
+    .col-sm-auto {
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none
+    }
 
+    .col-sm-1 {
+        -ms-flex: 0 0 8.33333%;
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%
+    }
+
+    .col-sm-2 {
+        -ms-flex: 0 0 16.66667%;
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%
+    }
+
+    .col-sm-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%
+    }
+
+    .col-sm-4 {
+        -ms-flex: 0 0 33.33333%;
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%
+    }
+
+    .col-sm-5 {
+        -ms-flex: 0 0 41.66667%;
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%
+    }
+
+    .col-sm-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+
+    .col-sm-7 {
+        -ms-flex: 0 0 58.33333%;
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%
+    }
+
+    .col-sm-8 {
+        -ms-flex: 0 0 66.66667%;
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%
+    }
+
+    .col-sm-9 {
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%
+    }
+
+    .col-sm-10 {
+        -ms-flex: 0 0 83.33333%;
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%
+    }
+
+    .col-sm-11 {
+        -ms-flex: 0 0 91.66667%;
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%
+    }
+
+    .col-sm-12 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+    .p-4{
+        padding:1rem!important;
+    }
+    .p-5{
+        padding:1rem!important;
+    }
+    .p-5-1 {
+        padding:0!important;
+        padding-top: 1rem!important;
+    }
+}
+.aj_jplist_item{
+    img{
+        min-width: 90px;
+    }
+    min-width: 120px;
+}
