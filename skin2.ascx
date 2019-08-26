@@ -20,21 +20,21 @@
 <div id="mainboklistcontainer" class="container batuu-container">
 
     <!-- Header -->
-    <div class="row topheaderbg head_bokhylla"> 
+    <div class="row"> 
         <!-- Logo -->
         <div class="batuu-logo-container col-2">           
             <img id="logoimg" class="batuu-logo" src="images/bblogo2.png" runat="server" />
         </div>
 
         <!-- Server -->
-        <div class="col-sm-3 col-md-5 col-lg-7">
+        <div class="col-7">
             <div class="d-none">
                 <span id="HeaderPane" runat="server"></span>
             </div>
         </div>
 
         <!-- inlogg med mera -->
-        <div class="col-sm-7 col-md-5 col-lg-3 mt-2 aj_searchbox">          
+        <div class="col-3 mt-2">          
                
             <dnn:USER ID="USER1" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-user'></i> Bli medlem" LegacyMode="true" />
             <dnn:LOGIN ID="LOGIN2" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-lock'></i> Logga in" LegacyMode="true" />
@@ -44,8 +44,7 @@
                 <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="btn btn-batuu-green" UseDropDownList="true" Submit="<i class=&quot;fas fa-search&quot;></i&gt;" />
             </span>
         </div>
-        </div>
-         <div class="row">
+         
         <!-- meny -->
         <div  class="col px-0">
             
