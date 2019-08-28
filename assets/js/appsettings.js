@@ -1,8 +1,8 @@
 const appconfig = () => {
-	// let _apiserver = 'http://localhost:59015';
-	// let _dnnURL = 'http://localdev.kivdev.se';
-	let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
-	let _dnnURL = 'http://dev1.barnensbibliotek.se';
+	let _apiserver = 'http://localhost:59015';
+	let _dnnURL = 'http://localdev.kivdev.se';
+	//let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
+	//let _dnnURL = 'http://dev1.barnensbibliotek.se';
 	//let _apiserver = "http://dev1.barnensbibliotek.se:8080";
 	//let _dnnURL = "http://nytt.barnensbibliotek.se";
 	//let _apiserver = "https://www2.barnensbibliotek.se";
@@ -15,6 +15,9 @@ const appconfig = () => {
 	// Boklistor START
 	//// HandlebarTemplate (skickar tillbaka objectet bara att lägga till data för templaten)
 	let _hb_booklist_template = require('../../htmlTemplate/tpl_bookListItem.hbs');
+
+	// BokDetaljer START
+	let _hb_DetailBaseData_template = require('../../htmlTemplate/tpl_bookDetailBase.hbs');
 
 	//// api
 	let _fn_byCategoryId = function(catid, userid) {
@@ -62,6 +65,48 @@ const appconfig = () => {
 		);
 	};
 
+	//// api Bok Detaljdata
+	let _fn_DetailBaseData = function(bookid, userid) {
+		return (
+			_apiserver +
+			'/Api_v3.1/katalogen/typ/bookid/searchval/' +
+			bookid +
+			'/val/' +
+			userid +
+			_apidevkeyend
+		);
+	};
+
+	let _fn_ratingService = function(bookid, val) {
+		return (
+			_dnnURL +
+			'/desktopmodules/ajbarnbokskatalog/controls/RatingHandlerService.aspx?devkey=' +
+			_devkey +
+			'&val=' +
+			val +
+			'&bookid=' +
+			bookid +
+			'&json=Json'
+		);
+	};
+
+	let fjarilsRating_options = {
+		selected_symbol_type: 'image',
+		max_value: 5,
+		step_size: 1,
+		initial_value: 3,
+		symbols: {
+			image: {
+				base:
+					'<div class="im"><img src="/Portals/_default/Skins/bb_BATUU/images/icons/skala_fjaril_grey2.png" alt="..." class="batuu-rating-item"></div>',
+				hover:
+					'<div class="im"><img src="/Portals/_default/Skins/bb_BATUU/images/icons/fjaril.gif" alt="..." class="batuu-rating-item"></div>',
+				selected:
+					'<div class="im"><img src="/Portals/_default/Skins/bb_BATUU/images/icons/fjaril.gif" alt="..." class="batuu-rating-item"></div>'
+			}
+		}
+	};
+
 	return {
 		apiserver: _apiserver,
 		dnnURL: _dnnURL,
@@ -69,7 +114,8 @@ const appconfig = () => {
 		htmltemplateurl: _dnnURL + _htmltemplateURL,
 		devkey: _devkey,
 		handlebartemplate: {
-			hb_booklist_tmp: _hb_booklist_template
+			hb_booklist_tmp: _hb_booklist_template,
+			hb_DetailBaseData_tmp: _hb_DetailBaseData_template
 		},
 		api: {
 			boklistor: {
@@ -77,13 +123,18 @@ const appconfig = () => {
 				boklistbyAmneID: _fn_byAmnenId,
 				boklistbyFritext: _fn_byfritext
 			},
+			bokdetaljer: {
+				DetailBaseData: _fn_DetailBaseData
+			},
 			lasernu: _fn_laserjustnu,
 			autocomplete: {
 				getbyAuto: _fn_autocomplete
 			},
+			updateRating: _fn_ratingService,
 			devkeyend: _apidevkeyend
 		},
 		tabid: {
+			katalogenDetaljvy: '2365',
 			krypin_skrivboken: '1430',
 			krypin_boktips: '1431',
 			krypin_boklistor: '1429',
@@ -91,6 +142,9 @@ const appconfig = () => {
 		},
 		userinfo: {
 			userid: $('#barnensbiblCurrentUserid').html()
+		},
+		rating: {
+			fjarilsratingOption: fjarilsRating_options
 		},
 
 		debug: 'false'

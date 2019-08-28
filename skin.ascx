@@ -68,9 +68,7 @@
      <!-- Navigerings breadcrumb START -->
          <div class="row mx-n2">
              <div class="col-12">
-                 <div class="menybreadcrumb">
-                     <a href="http://www.kulturivast.se/kulturkatalogen-vast">START</a> | <dnn:BREADCRUMB ID="dnnBreadcrumb" runat="server" CssClass="mbc_navlinklist" RootLevel="0" Separator=" | " HideWithNoBreadCrumb="false" />           
-                 </div>
+                 
              </div>
          </div>
          <!-- Navigerings breadcrumb END -->

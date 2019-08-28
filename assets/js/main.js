@@ -14,7 +14,7 @@ $(function() {
 	console.log('urlParams.id: ' + urlParams.id);
 
 	if (qHandler.checkpage(urlParams)) {
-		console.log('detaljvy');
+		console.log('detaljvy 2');
 
 		detailObj.init(urlParams.id, _userid);
 	} else {

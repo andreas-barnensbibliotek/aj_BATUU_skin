@@ -1,5 +1,8 @@
+import appconfigObj from '../appsettings';
+
 const displayHandler = () => {
 	let $fullwidthcontainer, $katalogenMainListBlock, $aj_bb_btnCat;
+	let _appconfig = appconfigObj();
 	let urlParams = {
 		shtyp: '0'
 	};
@@ -16,7 +19,7 @@ const displayHandler = () => {
 		bindDom();
 		let retobj = false;
 		switch (urlParams.tabid) {
-			case '2365': //detaljvyn
+			case _appconfig.tabid.katalogenDetaljvy: //detaljvyn
 				console.log('visa Detaljsidan');
 				retobj = true;
 				break;

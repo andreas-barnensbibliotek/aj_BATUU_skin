@@ -1,0 +1,66 @@
+<!-- Loop start -->
+{{#each Bookitems}}
+<div class="row mb-5">
+    <div class="col-sm-3">
+        <div class="d-flex align-items-center batuu-background-row-item">
+            <a href="#"></a>
+                <div class="text-center">
+                    <img src="{{BokomslagURL}}" alt="{{title}}" class="img-thumbnail">
+                </div>
+            </a>
+            {{#booklistdpr @root.Userbooklist Bookid}} {{/booklistdpr}}
+        </div>
+        
+    </div>
+    <div class="col-sm-9">
+        <h3 class="mb-0">{{title}}</h3>
+        <p class="my-0">av: <a href="#" class="batuu-link">{{#each Forfattare}} {{namn}} {{/each}}</a></p>
+        <div class="mt-0 d-flex justify-content-start">            
+            <div class="mr-2">
+                <div class="aj_bb_fjarilsrating"></div>
+            </div>
+            <div class="">
+                <p> <span id="ratingTotal"></span> R&ouml;ster | <a class="batuu-link" href="#">L&auml;s vad andra tyckte om boken</a></p>
+            </div>
+        </div>
+
+
+        <p>{{{BookReview}}}</p>
+
+    </div>
+</div>
+<div class="row pr-2">
+    <div class="col-sm-6">
+        <div class="mx-0">
+            <p class="my-0"><strong>F&ouml;rfattare:</strong> <a href="#" class="batuu-link">{{#each Forfattare}} {{namn}} {{/each}}</a></p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><strong>Serie:</strong> <a href="#" class="batuu-link">{{Serie}} - {{Serienr}}</a></p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><strong>Utgivnings&aring;r: </strong>{{Published}}</p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><strong>F&ouml;rlag:</strong> <a href="#" class="batuu-link">{{forlag}}</a></p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><strong>ISBN:</strong> {{isbn}}</p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><strong>Kategori:</strong> <a href="#" class="batuu-link">{{#each Categories}} {{catnamn}}, {{/each}}</a></p>
+        </div>
+    </div>
+    <div class="col-sm-6 pb-3">
+        <div class="mx-0">
+            <p class="my-0"><a href="http://www.legimus.se/search?query={{title}}&sort=Relevance&snabbsokknapp=S%C3%B6k&searchtype=Biblioteket&fLibId=00000000-0000-0000-0000-000000000000" class="batuu-link"><i class="fas fa-link"></i> Finns boken som talbok?</a></p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><a href="http://www.smakprov.se/smakprov.php?isbn={{isbn}}&amp;l=Barnensbibliotek" class="batuu-link"><i class="fas fa-link"></i> L&auml;s ett smakprov</a></p>
+        </div>
+        <div class="mx-0">
+            <p class="my-0"><strong>Finns boken att l&aring;na i:</strong> <a href="#" class="batuu-link">Stad</a></p>
+        </div>
+
+    </div>
+</div>
+{{/each}}
