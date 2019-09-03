@@ -1,8 +1,8 @@
 const appconfig = () => {
-	let _apiserver = 'http://localhost:59015';
-	let _dnnURL = 'http://localdev.kivdev.se';
-	//let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
-	//let _dnnURL = 'http://dev1.barnensbibliotek.se';
+	// let _apiserver = 'http://localhost:59015';
+	// let _dnnURL = 'http://localdev.kivdev.se';
+	let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
+	let _dnnURL = 'http://dev1.barnensbibliotek.se';
 	//let _apiserver = "http://dev1.barnensbibliotek.se:8080";
 	//let _dnnURL = "http://nytt.barnensbibliotek.se";
 	//let _apiserver = "https://www2.barnensbibliotek.se";
@@ -18,7 +18,11 @@ const appconfig = () => {
 
 	// BokDetaljer START
 	let _hb_DetailBaseData_template = require('../../htmlTemplate/tpl_bookDetailBase.hbs');
+	let _hb_forfAlsoWrite_template = require('../../htmlTemplate/tpl_bookdetailForfalsoWrite.hbs');
+	let _hb_AlsoLikeThisBook_template = require('../../htmlTemplate/tpl_alsolikethis.hbs');
 
+	// BokComments START
+	let _hb_ThisbookComment_template = require('../../htmlTemplate/tpl_comments.hbs');
 	//// api
 	let _fn_byCategoryId = function(catid, userid) {
 		return (
@@ -77,6 +81,33 @@ const appconfig = () => {
 		);
 	};
 
+	let _fn_forfAlsoWrite = function(creatorId) {
+		return (
+			_apiserver +
+			'/Api_v3.1/katalogenextended/typ/faw/val/' +
+			creatorId +
+			_apidevkeyend
+		);
+	};
+
+	let _fn_ThisBookComments = function(bookId) {
+		return (
+			_apiserver + '/Api_v3.1/Comments/typ/getcom/val/' + bookId + _apidevkeyend
+		);
+	};
+
+	let _fn_addBookComments = function() {
+		return _apiserver + '/Api_v3.1/Comments/typ/addcom/' + _apidevkeyend;
+	};
+
+	let _fn_AlsoLikeThisBook = function(Bookid) {
+		return (
+			_dnnURL +
+			'/desktopmodules/barnensbiblService/booksuggestapi/booksuggestapi.aspx?devkey=suggest&cmdtyp=also&bookid=' +
+			Bookid
+		);
+	};
+
 	let _fn_ratingService = function(bookid, val) {
 		return (
 			_dnnURL +
@@ -115,7 +146,10 @@ const appconfig = () => {
 		devkey: _devkey,
 		handlebartemplate: {
 			hb_booklist_tmp: _hb_booklist_template,
-			hb_DetailBaseData_tmp: _hb_DetailBaseData_template
+			hb_DetailBaseData_tmp: _hb_DetailBaseData_template,
+			hb_DetailForfAlsoWrite_tmp: _hb_forfAlsoWrite_template,
+			hb_DetailAlsoLikeThisBook_tmp: _hb_AlsoLikeThisBook_template,
+			hb_thisBookComments_tmp: _hb_ThisbookComment_template
 		},
 		api: {
 			boklistor: {
@@ -124,7 +158,11 @@ const appconfig = () => {
 				boklistbyFritext: _fn_byfritext
 			},
 			bokdetaljer: {
-				DetailBaseData: _fn_DetailBaseData
+				DetailBaseData: _fn_DetailBaseData,
+				forfAlsoWrite: _fn_forfAlsoWrite,
+				getAlsoLikeThisBook: _fn_AlsoLikeThisBook,
+				thisBookComments: _fn_ThisBookComments,
+				addBookComments: _fn_addBookComments
 			},
 			lasernu: _fn_laserjustnu,
 			autocomplete: {
@@ -134,7 +172,8 @@ const appconfig = () => {
 			devkeyend: _apidevkeyend
 		},
 		tabid: {
-			katalogenDetaljvy: '2365',
+			katalogenDetaljvy: '1449', //'2365', // dev1 tabid= '1449'
+			katalogenSearchvy: '1448', //'2361', // dev2 tabid= '1448'
 			krypin_skrivboken: '1430',
 			krypin_boktips: '1431',
 			krypin_boklistor: '1429',
@@ -146,7 +185,6 @@ const appconfig = () => {
 		rating: {
 			fjarilsratingOption: fjarilsRating_options
 		},
-
 		debug: 'false'
 	};
 };

@@ -1,0 +1,15 @@
+<h4 class="text-center mt-2">F&ouml;rfattaren har &auml;ven skrivit detta</h4>
+<!-- Loop start -->
+
+<div class="">
+    <div class="row d-flex align-items-end">
+{{#each booklist}}
+        <div class="col-lg-4 col-3 p-2">
+            <a href="/katalog_4_2/tabid/1449/Default.aspx?id={{Bookid}}">
+                <img src="{{BokomslagURL}}"
+                    alt="{{title}}" class="img-thumbnail">
+            </a>
+        </div>        
+{{/each}}        
+    </div>
+</div>

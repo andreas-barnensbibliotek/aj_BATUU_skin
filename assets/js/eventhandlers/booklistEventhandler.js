@@ -42,15 +42,16 @@ const boklistEventHandler = () => {
 	}
 
 	function BoklistEvent(userid) {
-		document
-			.getElementById('aj_bb_searchbox')
-			.addEventListener('keyup', function(event) {
+		let searchbox = document.getElementById('aj_bb_searchbox');
+		if (typeof searchbox != 'undefined' && searchbox != null) {
+			searchbox.addEventListener('keyup', function(event) {
 				event.preventDefault();
 				if (event.keyCode === 13) {
 					$bb_aj_searchbtn.click();
 					$bb_aj_searchbtn.focus();
 				}
 			});
+		}
 
 		$mainboklistcontainer.on('click', '.catNav', function(e) {
 			let catid = $(this).attr('data-catid');

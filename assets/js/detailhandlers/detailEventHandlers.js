@@ -14,16 +14,65 @@ const detailHandler = () => {
 		$cmdDetailClose = $('#cmdDetailClose');
 	}
 
-	function domEvents() {
+	function domEvents(bokid) {
 		$mainboklistcontainer.on('change', '.aj_bb_fjarilsrating', function(
 			e,
 			data
 		) {
-			console.log('fjarilsrate: ' + data.from, data.to);
+			//console.log('fjarilsrate: ' + data.from, data.to);
+
+			let bookid = $('#currentBookid').attr('data-bookid');
+
+			detailhandlerObj.fjarilsrating(bookid, data.to, function(data) {
+				let option = _appconfig.rating.fjarilsratingOption;
+				option.initial_value = data.ratingVal;
+				$('#ratingTotal').html(data.ratingTotal);
+				$('.aj_bb_fjarilsrating').rate(option);
+			});
 		});
 
 		$mainboklistcontainer.on('click', '#cmdDetailClose', function(e) {
 			window.history.back();
+		});
+
+		$mainboklistcontainer.on('click', '#aj_bb_cmdCommentForm', function(e) {
+			let $commentformAlert = $('#aj_bb_commentFormAlert');
+			let $nameAlert = $('#aj_bb_nameAlert');
+			let $ageAlert = $('#aj_bb_ageAlert');
+			let $reviewAlert = $('#aj_bb_reviewAlert');
+			let correctForm = true;
+
+			let forminfo = {};
+			forminfo.bookid = bokid;
+			forminfo.CommentNamn = $('#aj_bb_name').val();
+			forminfo.CommentAlder = $('#aj_bb_age').val();
+			forminfo.CommentInlagg = $('#aj_bb_review').val();
+
+			$nameAlert.html('');
+			$ageAlert.html('');
+			$reviewAlert.html('');
+			$commentformAlert.html('');
+
+			if (!forminfo.CommentNamn) {
+				correctForm = false;
+				$nameAlert.html('Du m&aring;ste fylla i namn!');
+			}
+			if (!forminfo.CommentAlder) {
+				correctForm = false;
+				$ageAlert.html('Du m&aring;ste fylla i &aring;lder!');
+			}
+			if (isNaN(forminfo.CommentAlder)) {
+				correctForm = false;
+				$ageAlert.html('Du m&aring;ste fylla i &aring;lder med siffror!');
+			}
+			if (!forminfo.CommentInlagg) {
+				correctForm = false;
+				$reviewAlert.html('Du m&aring;ste skriva vad du tycker!');
+			}
+			if (correctForm) {
+				detailhandlerObj.commentform(forminfo, function() {});
+			}
+			return false;
 		});
 	}
 
@@ -38,9 +87,9 @@ const detailHandler = () => {
 
 	function init(bookid, userid) {
 		bindDOM();
-		domEvents();
+		domEvents(bookid);
 		detailhandlerObj.init(bookid, userid, function(retbookid) {
-			console.log('hämta details via id:' + retbookid);
+			//console.log('hämta details via id:' + retbookid);
 			initfjarilsRating(retbookid);
 		});
 	}

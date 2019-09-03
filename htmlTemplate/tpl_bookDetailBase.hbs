@@ -1,6 +1,6 @@
 <!-- Loop start -->
 {{#each Bookitems}}
-<div class="row mb-5">
+<div id="currentBookid" class="row mb-5" data-bookid="{{Bookid}}">
     <div class="col-sm-3">
         <div class="d-flex align-items-center batuu-background-row-item">
             <a href="#"></a>
@@ -32,22 +32,21 @@
 <div class="row pr-2">
     <div class="col-sm-6">
         <div class="mx-0">
-            <p class="my-0"><strong>F&ouml;rfattare:</strong> <a href="#" class="batuu-link">{{#each Forfattare}} {{namn}} {{/each}}</a></p>
+            <p class="my-0 bb_aj_creator"><strong>F&ouml;rfattare:</strong>{{#each Forfattare}} <a href="#" data-creatorid="{{creatorid}}" class="batuu-link"> {{namn}} </a>{{/each}}</p>
         </div>
-        <div class="mx-0">
-            <p class="my-0"><strong>Serie:</strong> <a href="#" class="batuu-link">{{Serie}} - {{Serienr}}</a></p>
-        </div>
+        {{#hb_bookSerie Serie Serienr }}{{/hb_bookSerie}}
+        
         <div class="mx-0">
             <p class="my-0"><strong>Utgivnings&aring;r: </strong>{{Published}}</p>
         </div>
         <div class="mx-0">
-            <p class="my-0"><strong>F&ouml;rlag:</strong> <a href="#" class="batuu-link">{{forlag}}</a></p>
+            <p class="my-0"><strong>F&ouml;rlag:</strong> {{forlag}}</p>
         </div>
         <div class="mx-0">
             <p class="my-0"><strong>ISBN:</strong> {{isbn}}</p>
         </div>
         <div class="mx-0">
-            <p class="my-0"><strong>Kategori:</strong> <a href="#" class="batuu-link">{{#each Categories}} {{catnamn}}, {{/each}}</a></p>
+            <p class="my-0"><strong>Kategori:</strong> {{#each Categories}} {{catnamn}}, {{/each}}</p>
         </div>
     </div>
     <div class="col-sm-6 pb-3">

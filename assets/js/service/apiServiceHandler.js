@@ -103,6 +103,7 @@ const apiServiceHandler = () => {
 		GetjsonAuto: GetJsonDataAutocomplete,
 		GetjsonDetail: GetJsonData,
 		UpdgetJson: updateGetJson,
+		UpdPostjson: PostJsonData,
 		Postjson: GetJsonPostDataFromStorage
 	};
 };

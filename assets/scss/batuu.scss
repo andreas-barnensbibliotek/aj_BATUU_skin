@@ -259,7 +259,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .batuu-footer{
-    
+    margin-top:1rem;
     max-height:180px !important;
     max-height: 380px;
     padding: 2rem 1rem;
@@ -591,6 +591,9 @@ li.dropdown:hover > .dropdown-menu {
 
 // fix för small size screen -> put it in bootstrap library?
 @media (max-width: 576px) {
+    .pr-3{
+        padding-right:0rem!important;
+    }
     .col-sm {
         -ms-flex-preferred-size: 0;
         flex-basis: 0;
@@ -688,6 +691,19 @@ li.dropdown:hover > .dropdown-menu {
         padding-top: 1rem!important;
     }
 }
+@media (min-width: 576px) {
+    .pr-3{
+        padding-right:0rem!important;
+    } 
+}
+@media (min-width: 768px) { 
+    
+ }
+ @media (min-width: 992px) { 
+    .pr-3{
+        padding-right:1.5rem!important;
+    }
+  }
 .aj_jplist_item{
     img{
         min-width: 90px;
