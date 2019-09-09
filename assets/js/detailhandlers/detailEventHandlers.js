@@ -1,10 +1,11 @@
 import bokdetailhandler from '../detailhandlers/bookdetailHandler';
+import extrafunctionHandler from '../components/extrafunctionHandler';
 import appconfigObj from '../appsettings';
 
 const detailHandler = () => {
 	let detailhandlerObj = bokdetailhandler();
 	let _appconfig = appconfigObj();
-
+	let xtrafuncObj = extrafunctionHandler();
 	let $mainboklistcontainer, $fjarilsrate, $ratingTotal, $cmdDetailClose;
 
 	function bindDOM() {
@@ -88,6 +89,7 @@ const detailHandler = () => {
 	function init(bookid, userid) {
 		bindDOM();
 		domEvents(bookid);
+		xtrafuncObj.init(userid);
 		detailhandlerObj.init(bookid, userid, function(retbookid) {
 			//console.log('hämta details via id:' + retbookid);
 			initfjarilsRating(retbookid);

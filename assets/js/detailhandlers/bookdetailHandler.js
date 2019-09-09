@@ -1,5 +1,6 @@
 // let _ = require('lodash');
 import apiServiceHandler from '../service/apiServiceHandler';
+import usertoopac from '../components/usertoOpac';
 import appconfigObj from '../appsettings';
 
 const BookDetailsObj = () => {
@@ -8,15 +9,18 @@ const BookDetailsObj = () => {
 		$currentBookid,
 		$alsolikethisbook,
 		$aj_bb_comments,
+		$aj_bb_iphost,
 		$curtmpl;
 	let _apiObj = apiServiceHandler();
 	let _appconfig = appconfigObj();
+	let _UsrToOpacObj = usertoopac;
 
 	function bind() {
 		$baseBlock = $('#aj_bb_detaljBlock');
 		$forfalsowriteblock = $('#aj_bb_forfAlsoWriteBlock');
 		$alsolikethisbook = $('#aj_bb_AlsoLikeThis');
 		$aj_bb_comments = $('#aj_bb_comments');
+		$aj_bb_iphost = $('.iphost');
 		$curtmpl = '';
 	}
 
@@ -41,7 +45,7 @@ const BookDetailsObj = () => {
 	}
 
 	function getforfAlsoWrite(callback) {
-		let creatorid = $('.bb_aj_creator a').attr('data-creatorid');
+		let creatorid = $('.bb_aj_creator .aj_bb_creatorid').attr('data-creatorid');
 		let url = _appconfig.api.bokdetaljer.forfAlsoWrite(creatorid);
 		let templ = _appconfig.handlebartemplate.hb_DetailForfAlsoWrite_tmp;
 
@@ -99,6 +103,10 @@ const BookDetailsObj = () => {
 					//console.log(ret);
 					getThisBookComments(bookid, function(cmobj) {
 						//	console.log(cmobj);
+						//Start userToOpacFunction
+						let ip = $aj_bb_iphost.html(); // $(".bb_aj_userip").html();
+						let isbn = $('#aj_kk_isbn').attr('data-isbn'); //  '9789163319297'; //$('.bookisbn').html();
+						_UsrToOpacObj.init(ip, isbn);
 					});
 				});
 			});

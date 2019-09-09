@@ -1,8 +1,8 @@
 const appconfig = () => {
-	// let _apiserver = 'http://localhost:59015';
-	// let _dnnURL = 'http://localdev.kivdev.se';
-	let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
-	let _dnnURL = 'http://dev1.barnensbibliotek.se';
+	let _apiserver = 'http://localhost:59015';
+	let _dnnURL = 'http://localdev.kivdev.se';
+	// let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
+	// let _dnnURL = 'http://dev1.barnensbibliotek.se';
 	//let _apiserver = "http://dev1.barnensbibliotek.se:8080";
 	//let _dnnURL = "http://nytt.barnensbibliotek.se";
 	//let _apiserver = "https://www2.barnensbibliotek.se";
@@ -108,6 +108,20 @@ const appconfig = () => {
 		);
 	};
 
+	let _fn_BooklistService = function(userid, blistid, bookid) {
+		return (
+			_dnnURL +
+			'/desktopmodules/AJBarnensKrypin/controls/krypinbooklistservice.aspx?cmdtyp=addbooktobooklist&usr=' +
+			userid +
+			'&blid=' +
+			blistid +
+			'&bookid=' +
+			bookid +
+			'&devkey=krypin'
+		);
+		// https://www.barnensbibliotek.se/DesktopModules/AJBarnensKrypin/controls/krypinbooklistservice.aspx?cmdtyp=addbooktobooklist&usr=7017&blid=1384&bookid=39629
+	};
+
 	let _fn_ratingService = function(bookid, val) {
 		return (
 			_dnnURL +
@@ -119,6 +133,11 @@ const appconfig = () => {
 			bookid +
 			'&json=Json'
 		);
+	};
+
+	let _fn_getuseridDOM = function() {
+		let usrid = $('#barnensbiblCurrentUserid').html();
+		return usrid;
 	};
 
 	let fjarilsRating_options = {
@@ -168,19 +187,23 @@ const appconfig = () => {
 			autocomplete: {
 				getbyAuto: _fn_autocomplete
 			},
+			extrafunctions: {
+				addtoBooklist: _fn_BooklistService
+			},
 			updateRating: _fn_ratingService,
 			devkeyend: _apidevkeyend
 		},
 		tabid: {
-			katalogenDetaljvy: '1449', //'2365', // dev1 tabid= '1449'
-			katalogenSearchvy: '1448', //'2361', // dev2 tabid= '1448'
+			katalogenDetaljvy: '2365', // dev1 tabid= '1449'
+			katalogenSearchvy: '2361', // dev2 tabid= '1448'
 			krypin_skrivboken: '1430',
 			krypin_boktips: '1431',
 			krypin_boklistor: '1429',
 			krypin_start: '1435'
 		},
 		userinfo: {
-			userid: $('#barnensbiblCurrentUserid').html()
+			userid: $('#barnensbiblCurrentUserid').html(), //_fn_getuseridDOM //
+			useridtest: _fn_getuseridDOM //
 		},
 		rating: {
 			fjarilsratingOption: fjarilsRating_options

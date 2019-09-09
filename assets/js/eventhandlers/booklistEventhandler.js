@@ -1,6 +1,7 @@
 import BooklistObj from '../components/booklisthandler';
 import autocompleteObj from '../components/autocompleteHandler';
 import displayHandler from '../eventhandlers/controlDisplayHandler';
+import extrafunctionHandler from '../components/extrafunctionHandler';
 
 const boklistEventHandler = () => {
 	let $catnav,
@@ -23,6 +24,7 @@ const boklistEventHandler = () => {
 	let blobj = BooklistObj();
 	let autoObj = autocompleteObj();
 	let displayobj = displayHandler();
+	let xtrafuncObj = extrafunctionHandler();
 
 	function bindDom() {
 		$mainboklistcontainer = $('#mainboklistcontainer');
@@ -133,57 +135,59 @@ const boklistEventHandler = () => {
 		// 	return false;
 		// });
 
-		$mainboklistcontainer.on('click', '.booklistHandler', function(e) {
-			let $curBlObj = $(this);
-			let $curblchkIcon = $curBlObj.find('div');
-			let curbl = $(this).attr('data-boklistid');
+		// $mainboklistcontainer.on('click', '.booklistHandler', function(e) {
+		// 	let $curBlObj = $(this);
+		// 	let $curblchkIcon = $curBlObj.find('div');
+		// 	let curbl = $(this).attr('data-boklistid');
 
-			let bookid = $(this)
-				.parent()
-				.attr('data-currbookid');
+		// 	let bookid = $(this)
+		// 		.parent()
+		// 		.attr('data-currbookid');
 
-			/// lägg till och tabort icon
-			if ($curblchkIcon.hasClass('hidedrpchkimg')) {
-				// avbocka vald boklista i Boklistningen
-				$curblchkIcon.removeClass('hidedrpchkimg');
-			} else {
-				$curblchkIcon.addClass('hidedrpchkimg');
-			}
+		// 	/// lägg till och tabort icon
+		// 	if ($curblchkIcon.hasClass('hidedrpchkimg')) {
+		// 		// avbocka vald boklista i Boklistningen
+		// 		$curblchkIcon.removeClass('hidedrpchkimg');
+		// 	} else {
+		// 		$curblchkIcon.addClass('hidedrpchkimg');
+		// 	}
 
-			// drpd_booklistChecker($curBlObj);
+		// 	blobj.addtobooklist(curbl, bookid, function() {
+		// 		console.log('inlagd i boklista: ' + curbl + ' och bokid: ' + bookid);
+		// 	});
 
-			/// kolla om yttre ikon skall ändras
-			let $bookitemcontainer = $curBlObj.parent().parent();
-			let Totalantalbooklists = $(this)
-				.parent()
-				.find('.booklistHandler');
-			let Antalcheckedboklists = $bookitemcontainer.find('.hidedrpchkimg');
+		// 	/// kolla om yttre ikon skall ändras
+		// 	let $bookitemcontainer = $curBlObj.parent().parent();
+		// 	let Totalantalbooklists = $(this)
+		// 		.parent()
+		// 		.find('.booklistHandler');
+		// 	let Antalcheckedboklists = $bookitemcontainer.find('.hidedrpchkimg');
 
-			let valdbtn = $bookitemcontainer.find('button');
-			if (Totalantalbooklists.length == Antalcheckedboklists.length) {
-				// avbocka boklistan
-				valdbtn.addClass('btn-light').removeClass('btn-success');
-				valdbtn
-					.find('i')
-					.removeClass('fa-check')
-					.addClass('fa-ellipsis-v');
-			} else {
-				valdbtn.addClass('btn-success').removeClass('btn-light');
-				valdbtn
-					.find('i')
-					.removeClass('fa-ellipsis-v')
-					.addClass('fa-check');
-			}
+		// 	let valdbtn = $bookitemcontainer.find('button');
+		// 	if (Totalantalbooklists.length == Antalcheckedboklists.length) {
+		// 		// avbocka boklistan
+		// 		valdbtn.addClass('btn-light').removeClass('btn-success');
+		// 		valdbtn
+		// 			.find('i')
+		// 			.removeClass('fa-check')
+		// 			.addClass('fa-ellipsis-v');
+		// 	} else {
+		// 		valdbtn.addClass('btn-success').removeClass('btn-light');
+		// 		valdbtn
+		// 			.find('i')
+		// 			.removeClass('fa-ellipsis-v')
+		// 			.addClass('fa-check');
+		// 	}
 
-			return false;
-		});
+		// 	return false;
+		// });
 
-		$mainboklistcontainer.on('click', '.aj_bb_readsnow', function(e) {
-			let bookid = $(this).attr('data-currbookid');
-			blobj.laserjustnu(bookid, function() {
-				alert('läser just nu');
-			});
-		});
+		// $mainboklistcontainer.on('click', '.aj_bb_readsnow', function(e) {
+		// 	let bookid = $(this).attr('data-currbookid');
+		// 	blobj.laserjustnu(bookid, function() {
+		// 		console.log('laser nu: ' + bookid);
+		// 	});
+		// });
 	}
 	function jplistInitHandler() {
 		$mainboklistcontainer.jplist({
@@ -209,17 +213,20 @@ const boklistEventHandler = () => {
 
 	function init(userid, callback) {
 		bindDom();
-		if (userid <= 0) {
-			$('.align-self-start').hide();
-		} else {
-			$('.align-self-start').show();
-		}
+
 		BoklistEvent(userid);
+		xtrafuncObj.init(userid);
 		spinnerobj(true);
 		blobj.init('6', userid, function(data) {
 			$pagerstyle.html('');
 			jplistInitHandler();
 			spinnerobj(false);
+			if (parseInt(userid) <= 0) {
+				$('.align-self-start').hide();
+			} else {
+				$('.align-self-start').show();
+			}
+
 			callback();
 		});
 	}
