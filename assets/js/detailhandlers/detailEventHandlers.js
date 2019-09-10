@@ -33,7 +33,11 @@ const detailHandler = () => {
 		});
 
 		$mainboklistcontainer.on('click', '#cmdDetailClose', function(e) {
-			window.history.back();
+			//window.history.back();
+			if (window.history.length) {
+				window.history.back();
+				return false;
+			}
 		});
 
 		$mainboklistcontainer.on('click', '#aj_bb_cmdCommentForm', function(e) {

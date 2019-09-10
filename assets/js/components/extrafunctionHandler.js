@@ -87,7 +87,7 @@ const extraFunctionHandler = () => {
 		);
 		_apiObj.UpdgetJson(url, function(data) {
 			callback();
-			console.log('laser just nu uppdaterad!');
+			console.log('Bok i boklista uppdaterad');
 		});
 	}
 
