@@ -5,8 +5,8 @@ const appconfig = () => {
 	// let _dnnURL = 'http://dev1.barnensbibliotek.se';
 	//let _apiserver = "http://dev1.barnensbibliotek.se:8080";
 	//let _dnnURL = "http://nytt.barnensbibliotek.se";
-	//let _apiserver = "https://www2.barnensbibliotek.se";
-	//let _dnnURL = "https://www.barnensbibliotek.se";
+	// let _apiserver = 'https://www2.barnensbibliotek.se';
+	// let _dnnURL = 'https://www.barnensbibliotek.se';
 	let _devkey = 'alf';
 	let _apidevkeyend = '/devkey/' + _devkey + '/?type=json&callback=?';
 	let _localOrServerURL = '';
@@ -194,12 +194,12 @@ const appconfig = () => {
 			devkeyend: _apidevkeyend
 		},
 		tabid: {
-			katalogenDetaljvy: '2365', // dev1 tabid= '1449'
-			katalogenSearchvy: '2361', // dev2 tabid= '1448'
+			katalogenDetaljvy: '2365', // dev1 tabid= '1449' local:'2365' live: 1469
+			katalogenSearchvy: '2361', // dev2 tabid= '1448' local:'2361' live: 1468
 			krypin_skrivboken: '1430',
-			krypin_boktips: '1431',
-			krypin_boklistor: '1429',
-			krypin_start: '1435'
+			krypin_boktips: '1431', //dev1 tabid= '1431' local:'' live: 1431
+			krypin_boklistor: '1429', //dev1 tabid= '1429' local:'' live: 1429
+			krypin_start: '1435' //dev1 tabid= '1435' local:'' live: 1435
 		},
 		userinfo: {
 			userid: $('#barnensbiblCurrentUserid').html(), //_fn_getuseridDOM //

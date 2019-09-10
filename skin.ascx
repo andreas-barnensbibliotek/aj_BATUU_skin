@@ -68,7 +68,14 @@
      <!-- Navigerings breadcrumb START -->
          <div class="row mx-n2">
              <div class="col-12">
-                 
+                 <div id="ReadspeakerBox">
+                    <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+                        <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Lyssna p&aring; sidans text med ReadSpeaker" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=4430&amp;lang=sv_se&amp;readid=itemheight1bgrgb_ljusgra">
+                            <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lyssna</span></span></span>
+                            <span class="rsbtn_right rsimg rsplay rspart"></span>
+                        </a>
+                    </div>
+                </div>
              </div>
          </div>
          <!-- Navigerings breadcrumb END -->
@@ -118,21 +125,8 @@
             <p class="fl_right"></p>
         </div>
     </div>
-
-    <div id="ReadspeakerBox">
-        <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-            <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Lyssna p&aring; sidans text med ReadSpeaker" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=4430&amp;lang=sv_se&amp;readid=itemheight1bgrgb_ljusgra">
-                <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lyssna</span></span></span>
-                <span class="rsbtn_right rsimg rsplay rspart"></span>
-            </a>
-        </div>
-    </div>
+    
 </div>
-
-
-
-
-
 
 
 
@@ -141,3 +135,5 @@
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/bootstrap.bundle.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/aj_batuu.1.0.0.js" PathNameAlias="SkinPath" />
+
+<script src="//f1-eu.readspeaker.com/script/4430/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
