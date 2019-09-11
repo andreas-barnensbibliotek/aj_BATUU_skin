@@ -10,7 +10,10 @@
  * dropdown
  */
 #barnensbiblCurrentUserid{display: none;}
-// #ReadspeakerBox{display: none;}
+#ReadspeakerBox{display: none;
+    margin-top:1rem;
+}
+
 
 .bred{
     border: 1px solid red;
@@ -242,8 +245,18 @@ li.dropdown:hover > .dropdown-menu {
 
 */
 
+#bokdrakeitm{
 
+    img{
+        max-width: 100%;
+    }
+}
+#bokemonitm{
 
+    img{
+        max-width: 100%;
+    }
+}
 
 
 

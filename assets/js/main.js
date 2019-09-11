@@ -22,4 +22,9 @@ $(function() {
 
 		console.log('listvy');
 	}
+
+	$('#dnn_lyssarealspeaker').on('click', function() {
+		$('#ReadspeakerBox').toggle();
+		return false;
+	});
 });
