@@ -14,7 +14,7 @@
 <%@ Register TagPrefix="dnn" TagName="JQUERY" Src="~/Admin/Skins/jQuery.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
 
-
+<dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/public/css/app.css" PathNameAlias="SkinPath" Priority="1" />
 
 <!-- ny kod -->
 <div id="mainboklistcontainer" class="container batuu-container">
@@ -68,12 +68,19 @@
      <!-- Navigerings breadcrumb START -->
          <div class="row mx-n2">
              <div class="col-12">
-                 
+                 <div id="ReadspeakerBox">
+                    <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+						<a rel="nofollow" class="rsbtn_play" accesskey="L" title="Lyssna p&aring; sidans text med ReadSpeaker" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=4430&amp;lang=sv_se&amp;readclass=aj_readthis&amp;url=">
+							<span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lyssna</span></span></span>
+							<span class="rsbtn_right rsimg rsplay rspart"></span>
+						</a>
+					</div>
+                </div>
              </div>
          </div>
          <!-- Navigerings breadcrumb END -->
     
-        <div id="searchPane" runat="server"></div>
+        <div id="searchPane" runat="server" class="aj_readthis"></div>
     
     
         <div id="fullwidhtPane" runat="server"></div>
@@ -114,30 +121,22 @@
 <div class="container">
     <div id="licbox" class="wrapper row4">
         <div id="copyright" class="clear">
-            <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
+            <p class="fl_left">&copy; <a href="https://www.barnensbiblotek.se">barnensbibliotek.se</a></p>
             <p class="fl_right"></p>
         </div>
     </div>
-
-    <div id="ReadspeakerBox">
-        <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-            <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Lyssna p&aring; sidans text med ReadSpeaker" href="http://app.eu.readspeaker.com/cgi-bin/rsent?customerid=4430&amp;lang=sv_se&amp;readid=itemheight1bgrgb_ljusgra">
-                <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lyssna</span></span></span>
-                <span class="rsbtn_right rsimg rsplay rspart"></span>
-            </a>
-        </div>
-    </div>
+    
 </div>
 
 
 
-
-
-
-
-
 <span id="barnensbiblCurrentUserid"><%= UserController.Instance.GetCurrentUserInfo().UserID%></span>
+<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/bokemon_v3.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/bootstrap.bundle.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/aj_batuu.1.0.0.js" PathNameAlias="SkinPath" />
+
+
+
+<script src="//f1-eu.readspeaker.com/script/4430/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>

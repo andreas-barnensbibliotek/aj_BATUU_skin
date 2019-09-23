@@ -32,7 +32,7 @@
 <div class="row pr-2 ">
     <div class="col-sm-6">
         <div class="mx-0">
-            <p class="my-0 bb_aj_creator"><strong>F&ouml;rfattare:</strong>{{#each Forfattare}} <span data-creatorid="{{creatorid}}" class="aj_bb_creatorid "> {{namn}}, </span>{{/each}}</p>
+            <p class="my-0 bb_aj_creator"><strong>F&ouml;rfattare:</strong>{{#each Forfattare}} <span data-creatorid="{{creatorid}}" class="aj_bb_creatorid "> {{namn}} </span>{{/each}}</p>
         </div>
         {{#hb_bookSerie Serie Serienr }}{{/hb_bookSerie}}
         
@@ -46,8 +46,9 @@
             <p class="my-0" id="aj_kk_isbn" data-isbn="{{isbn}}"><strong>ISBN:</strong> {{isbn}}</p>
         </div>
         <div class="mx-0">
-            <p class="my-0"><strong>Kategori:</strong> {{#each Categories}} {{catnamn}}, {{/each}}</p>
-        </div>
+            <p class="my-0"><strong>Kategori:</strong> {{#each Categories}} {{catnamn}} {{/each}}</p>
+        </div>        
+        {{#hb_mediatypcat MediatypCategories}}{{/hb_mediatypcat}}
     </div>
     <div class="col-sm-6 pb-3">
         <div class="mx-0">

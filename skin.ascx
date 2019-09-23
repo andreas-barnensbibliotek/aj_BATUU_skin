@@ -121,7 +121,7 @@
 <div class="container">
     <div id="licbox" class="wrapper row4">
         <div id="copyright" class="clear">
-            <p class="fl_left">&copy; <a href="/Hem/Regler/tabid/865/Default.aspx">L&aring;na av oss</a> - <a href="#">barnensbibliotek.se</a></p>
+            <p class="fl_left">&copy; <a href="#">barnensbibliotek.se</a></p>
             <p class="fl_right"></p>
         </div>
     </div>
