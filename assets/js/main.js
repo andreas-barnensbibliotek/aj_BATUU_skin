@@ -18,7 +18,7 @@ $(function() {
 
 		detailObj.init(urlParams.id, _userid);
 	} else {
-		blEvent.init(_userid, function() {});
+		blEvent.init(_userid, urlParams, function() {});
 
 		console.log('listvy');
 	}

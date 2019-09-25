@@ -84,7 +84,7 @@ const boklistEventHandler = () => {
 			urlParams.shtyp = amnid;
 
 			displayobj.checkToDisplay(urlParams);
-
+			window.history.pushState('', 'Search amne', '?shtyp=amn&srh=' + amnid);
 			$pagerstyle.html('');
 			jplistReset();
 
@@ -153,24 +153,70 @@ const boklistEventHandler = () => {
 		});
 	}
 
-	function init(userid, callback) {
+	function init(userid, urlParams, callback) {
+		let param = '';
 		bindDom();
 
 		BoklistEvent(userid);
 		xtrafuncObj.init(userid);
 		spinnerobj(true);
-		blobj.init('6', userid, function(data) {
-			$pagerstyle.html('');
-			jplistInitHandler();
-			spinnerobj(false);
-			if (parseInt(userid) <= 0) {
-				$('.align-self-start').hide();
-			} else {
-				$('.align-self-start').show();
-			}
 
-			callback();
-		});
+		param = urlParams.srh;
+
+		switch (urlParams.shtyp) {
+			case 'req':
+				if (param == '') {
+					param = 'birger';
+				}
+				blobj.fritextSearch(param, userid, function(data) {
+					initcallback(userid, function() {
+						callback();
+					});
+				});
+				break;
+
+			default:
+				if (typeof param == 'undefined') {
+					param = '6';
+				}
+				blobj.init(param, userid, function(data) {
+					initcallback(userid, function() {
+						callback();
+					});
+				});
+		}
+	}
+
+	// blobj.init('6', userid,function(data) {
+	// 	 initcallback( function(){
+	// 		callback();
+	// 	});
+	// });
+
+	// blobj.init('6', userid, function(data) {
+	// 	$pagerstyle.html('');
+	// 	jplistInitHandler();
+	// 	spinnerobj(false);
+	// 	if (parseInt(userid) <= 0) {
+	// 		$('.align-self-start').hide();
+	// 	} else {
+	// 		$('.align-self-start').show();
+	// 	}
+
+	// 	callback();
+	// });
+
+	function initcallback(userid, callback) {
+		$pagerstyle.html('');
+		jplistInitHandler();
+		spinnerobj(false);
+		if (parseInt(userid) <= 0) {
+			$('.align-self-start').hide();
+		} else {
+			$('.align-self-start').show();
+		}
+
+		callback();
 	}
 
 	/// HELPER functions---------------
