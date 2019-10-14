@@ -168,6 +168,7 @@ const boklistEventHandler = () => {
 				if (param == '') {
 					param = 'birger';
 				}
+
 				blobj.fritextSearch(param, userid, function(data) {
 					initcallback(userid, function() {
 						callback();
@@ -187,24 +188,19 @@ const boklistEventHandler = () => {
 		}
 	}
 
-	// blobj.init('6', userid,function(data) {
-	// 	 initcallback( function(){
-	// 		callback();
-	// 	});
-	// });
-
-	// blobj.init('6', userid, function(data) {
-	// 	$pagerstyle.html('');
-	// 	jplistInitHandler();
-	// 	spinnerobj(false);
-	// 	if (parseInt(userid) <= 0) {
-	// 		$('.align-self-start').hide();
-	// 	} else {
-	// 		$('.align-self-start').show();
-	// 	}
-
-	// 	callback();
-	// });
+	// Använd för att fixa
+	let observer = new MutationObserver(function(mutations) {
+		mutations.forEach(function(mutation) {
+			if (mutation.type == 'attributes') {
+				if (mutation.target.style.display == 'none') {
+					$('.aj_jplist_item').attr('style', 'display:none!important;');
+				} else {
+					$('.aj_jplist_item').show();
+				}
+			}
+			return true;
+		});
+	});
 
 	function initcallback(userid, callback) {
 		$pagerstyle.html('');
@@ -215,7 +211,10 @@ const boklistEventHandler = () => {
 		} else {
 			$('.align-self-start').show();
 		}
-
+		let element = document.querySelector('.jplist-pagination');
+		observer.observe(element, {
+			attributes: true //configure it to listen to attribute changes
+		});
 		callback();
 	}
 

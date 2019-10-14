@@ -31,9 +31,13 @@ const queryHandler = () => {
 			if (index > 0) {
 				urlParams.shtyp = sPageURL[index + 1];
 			}
+			index = sPageURL.indexOf('bookid');
+			if (index > 0) {
+				urlParams.bookid = sPageURL[index + 1];
+			}
 			index = sPageURL.indexOf('id');
 			if (index > 0) {
-				urlParams.id = sPageURL[index + 1];
+				urlParams.bookid = sPageURL[index + 1];
 			}
 		}
 		return urlParams;

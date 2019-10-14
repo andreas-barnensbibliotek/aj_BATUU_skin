@@ -11,12 +11,12 @@ $(function() {
 	// hämta från querystring
 	let urlParams = {};
 	urlParams = qHandler.checkparamsinurl(urlParams);
-	console.log('urlParams.id: ' + urlParams.id);
+	console.log('urlParams.id: ' + urlParams.bookid);
 
 	if (qHandler.checkpage(urlParams)) {
 		console.log('detaljvy 2');
 
-		detailObj.init(urlParams.id, _userid);
+		detailObj.init(urlParams.bookid, _userid);
 	} else {
 		blEvent.init(_userid, urlParams, function() {});
 

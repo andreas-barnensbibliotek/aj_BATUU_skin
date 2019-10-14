@@ -1,11 +1,13 @@
 import bokdetailhandler from '../detailhandlers/bookdetailHandler';
 import extrafunctionHandler from '../components/extrafunctionHandler';
+import detailSearchEventHandler from '../eventhandlers/detailSearchEventHandler';
 import appconfigObj from '../appsettings';
 
 const detailHandler = () => {
 	let detailhandlerObj = bokdetailhandler();
 	let _appconfig = appconfigObj();
 	let xtrafuncObj = extrafunctionHandler();
+	let detailSearchObj = detailSearchEventHandler();
 	let $mainboklistcontainer, $fjarilsrate, $ratingTotal, $cmdDetailClose;
 
 	function bindDOM() {
@@ -93,6 +95,7 @@ const detailHandler = () => {
 	function init(bookid, userid) {
 		bindDOM();
 		domEvents(bookid);
+		detailSearchObj.init(userid);
 		xtrafuncObj.init(userid);
 		detailhandlerObj.init(bookid, userid, function(retbookid) {
 			//console.log('hämta details via id:' + retbookid);
