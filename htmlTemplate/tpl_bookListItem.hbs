@@ -13,7 +13,7 @@
             <span class="{{#each Categories}}aj_bb_cat_{{CategoryID}} {{/each}}"></span>
             <img src="{{BokomslagURL}}" alt="{{title}}" class="img-thumbnail">
             <p class="font-weight-bold my-1 book-title">{{title}}</p>
-            <p class="font-weight-light my-0 author">{{#each Forfattare}} {{namn}} {{/each}}</p>
+            {{#hb_bookforfattareList Forfattare}}{{/hb_bookforfattareList}}    
         </div>
     </a>    
      

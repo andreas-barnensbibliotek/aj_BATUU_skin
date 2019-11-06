@@ -1,25 +1,27 @@
 module.exports = function(mediatyplist) {
 	let ret = '';
+	let x = 0;
 	console.log('Mediatyp' + mediatyplist);
+	ret = '<div class="mx-0"><p class="my-0"><strong>Mediatyp:</strong> ';
 	if (!_.isEmpty(mediatyplist)) {
-		ret = '';
 		for (itm in mediatyplist) {
-			ret +=
-				'<div class="align-self-start aj_bb_extrasymb MediatypCategories_' +
-				mediatyplist[itm].CategoryID +
-				'">';
-			ret +=
-				'<img src="/Portals/0/ny_layout/symboler/' +
-				mediatyplist[itm].iconSrc +
-				'" alt="' +
-				mediatyplist[itm].catnamn +
-				'"';
-			ret += 'title="' + mediatyplist[itm].catnamn + '" class="img-thumbnail">';
+			ret += mediatyplist[itm].catnamn;
+			ret += addcomma(x, mediatyplist.length);
+			x++;
 		}
 	} else {
-		ret = '<div class="align-self-start aj_bb_extrasymb MediatypCategories_0">';
-		ret += '<div></div>';
+		ret += 'Bok';
 	}
-	ret += '</div>';
+	ret += '</p></div>';
+
 	return ret;
+};
+
+let addcomma = function(counter, listtotal) {
+	let retobj = '';
+	if (listtotal >= 1) {
+		if (counter < listtotal - 1) {
+		}
+	}
+	return retobj;
 };

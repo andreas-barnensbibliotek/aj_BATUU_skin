@@ -268,7 +268,48 @@ li.dropdown:hover > .dropdown-menu {
     background-color: rgba( $white, .4 );
 }
 .batuu-background-row-green{
-    background-color: #95C024;
+    background-color:$batuu-green;
+}
+.batuu-background-row-blue{
+    background-color: $batuu-blue;
+}
+.batuu-background-row-rosa{
+    background-color: $batuu-pink;
+}
+.batuu-background-row-lila{
+    background-color: $batuu-purple;
+    color:white;
+    a{
+        color:white;
+        text-decoration: underline;
+    }
+}
+.batuu-background-row-ljusbrown{
+    background-color: $batuu-lightbrown;
+    color:white;
+    a{
+        color:white;
+        text-decoration: underline;
+    }
+}
+.batuu-background-row-brown{
+    background-color: $batuu-brown;
+    color:white;
+    a{
+        color:white;
+        text-decoration: underline;
+    }
+}
+.batuu-background-row-orange{
+    background-color:$batuu-orange;
+    color:white;
+    a{
+        color:white;
+        text-decoration: underline;
+    }
+}
+.batuu-background-row-gul{
+    background-color: $batuu-yellow;
 }
 
 .batuu-footer{
@@ -712,7 +753,7 @@ li.dropdown:hover > .dropdown-menu {
 @media (min-width: 768px) { 
     
  }
- @media (min-width: 992px) { 
+@media (min-width: 992px) { 
     .pr-3{
         padding-right:1.5rem!important;
     }
@@ -722,4 +763,47 @@ li.dropdown:hover > .dropdown-menu {
         min-width: 90px;
     }
     min-width: 120px;
+}
+#aj_bb_filterblock{
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding-top: .5rem;
+
+    .filteritm {    
+        margin-bottom: .5rem;
+        
+        .itmbtn{
+            margin-top:1rem;
+        }
+        h4{ 
+            font-size: .9rem;
+            margin-bottom: 2px;
+        }
+        .btn-lila{
+            color: #fff;
+            background-color: $batuu-purple;
+            border-color: $batuu-purple;
+        }
+        .btn-green{
+            color: #fff;
+            background-color:$batuu-green;
+            border-color: $batuu-green;
+        }
+        .btn-grey{
+            color: #000;
+            background-color:#ddd;
+            border-color:#a5a5a5;
+        }
+        .btn-blue{
+            color: #fff;
+            background-color: $batuu-blue;
+            border-color: $batuu-blue;
+        }
+        .btn-orange{
+            color: #fff;
+            background-color: $batuu-orange;
+            border-color:$batuu-orange;
+            
+        }
+    }
 }
