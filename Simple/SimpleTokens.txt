@@ -3,21 +3,34 @@
 </ul>
 
 [>NODE-TOP]
-	<li class="nav-item dropdown [?FIRST] first[/?][?LAST] last[/?][?SELECTED] selected[/?]">
-		[?ENABLED]
+
+	[?NODE-TOP]
 			
-			<a class="nav-link dropdown-toggle" href="[=URL]" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>
-		[?ELSE]
-			[=TEXT]
-		[/?]
-		[?NODE]
-			<div class="dropdown-menu " aria-labelledby="navbarDropdown">
+		<li class="nav-item dropdown [?FIRST] first[/?][?LAST] last[/?][?SELECTED] selected[/?]">
+			[?ENABLED]
+				<a class="nav-link dropdown-toggle aj_bb_mobile" href="" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>
+				<a class="nav-link dropdown-toggle aj_bb_desktop" href="[=URL]" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>
+			[?ELSE]
+				[=TEXT]
+			[/?]
+			[?NODE]
+				<div class="dropdown-menu " aria-labelledby="navbarDropdown">
 				
-				[*>NODE-SUB]
+					<a class="dropdown-item aj_bb_mobile" href="[=URL]" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>	
+
+					[*>NODE-SUB]
 				
-			</div>
-		[/?]
-	</li>
+				</div>
+			[/?]
+		</li>
+	[?ELSE]
+		<li class="nav-item  [?FIRST] first[/?][?LAST] last[/?][?SELECTED] selected[/?]">
+			
+				<a class="nav-link aj_bb_mobile" href="[=URL]" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false"  [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>
+				<a class="nav-link  aj_bb_desktop" href="[=URL]" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false" [?TARGET]target="[=TARGET]"[/?]>[=TEXT]</a>
+			
+		</li>
+	[/?]
 [/>]
 
 

@@ -14,35 +14,26 @@
 <%@ Register TagPrefix="dnn" TagName="JQUERY" Src="~/Admin/Skins/jQuery.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
 
-<dnn:DnnCssInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/public/css/app.css" PathNameAlias="SkinPath" Priority="1" />
-
 <!-- ny kod -->
 <div id="mainboklistcontainer" class="container batuu-container">
 
     <!-- Header -->
     <div class="row topheaderbg head_bokhylla"> 
         <!-- Logo -->
-        <div class="batuu-logo-container col-2">           
-            <img id="logoimg" class="batuu-logo" src="images/bblogo2.png" runat="server" />
-        </div>
-
-        <!-- Server -->
-        <div class="col-sm-3 col-md-5 col-lg-7">
-            <div class="d-none">
-                <span id="HeaderPane" runat="server"></span>
-            </div>
+        <div class="batuu-logo-container col-4 col-md-4">           
+            <a href="/"> <img id="logoimg" class="batuu-logo" src="images/bblogo2.png" runat="server" /></a>
         </div>
 
         <!-- inlogg med mera -->
-        <div class="col-sm-7 col-md-5 col-lg-3 mt-2 aj_searchbox">          
-               
-            <dnn:USER ID="USER1" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-user'></i> Bli medlem" LegacyMode="true" />
-            <dnn:LOGIN ID="LOGIN2" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-lock'></i> Logga in" LegacyMode="true" />
-            <a id="lyssarealspeaker" href="#"  runat="server" ><i class="fas fa-volume-up"></i></a>           
-           
-            <span id="searchboxen">
-                <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="btn btn-batuu-green" UseDropDownList="true" Submit="<i class=&quot;fas fa-search&quot;></i&gt;" />
-            </span>
+        <div class="col-sm-8 mt-2 aj_searchbox">          
+            <div id="searchcontainer">
+                <dnn:USER ID="USER1" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-user'></i> Bli medlem" LegacyMode="true" />
+                <dnn:LOGIN ID="LOGIN2" CssClass="font-weight-bold mr-3" runat="server" Text="<i class='fas fa-lock'></i> Logga in" LegacyMode="true" />
+                <a id="lyssarealspeaker" href="#"  runat="server" ><i class="fas fa-volume-up"></i></a> 
+                <span id="searchboxen">
+                    <dnn:SEARCH runat="server" ID="dnnSEARCH" CssClass="btn btn-batuu-green" UseDropDownList="true" Submit="<i class=&quot;fas fa-search&quot;></i&gt;" />
+                </span>
+            </div>
         </div>
         </div>
          <div class="row">
@@ -91,19 +82,19 @@
     <!-- Footer -->
 
     <div class="row batuu-footer mx-n2">
-        <div class="col-3">
+        <div class="col-sm-12 col-md-6 col-lg-3">
             <!-- CONTAINER ################################################################################################ -->
             <div id="foterpane_1_4Pane"><span id="foterPane_1_4" runat="server"></span></div>
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-6 col-lg-3">
             <!-- CONTAINER ################################################################################################ -->
             <div id="foterpane_2_4Pane"><span id="foterPane_2_4" runat="server"></span></div>
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-6 col-lg-3">
             <!-- CONTAINER ################################################################################################ -->
             <div id="foterpane_3_4Pane"><span id="foterPane_3_4" runat="server"></span></div>
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-6 col-lg-3">
             <!-- CONTAINER ################################################################################################ -->
             <div id="foterpane_4_4Pane"><span id="foterPane_4_4" runat="server"></span></div>
         </div>
@@ -131,7 +122,7 @@
 
 
 <span id="barnensbiblCurrentUserid"><%= UserController.Instance.GetCurrentUserInfo().UserID%></span>
-<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bokemonApi/js/bokemon_v3.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="../../../../DesktopModules/barnensbiblService/bibblemonGame/js/bibblomonGame_v1.0.1.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.cookiesdirective.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="layout/scripts/jquery.slicknav.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="public/js/bootstrap.bundle.min.js" PathNameAlias="SkinPath" />

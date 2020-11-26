@@ -14,7 +14,7 @@
     </div>
     <div class="col-sm-12 col-md-9">
         <h3 class="mb-0">{{title}}</h3>
-        <p class="my-0">av: {{#hb_bookforfattare Forfattare}}{{/hb_bookforfattare}}            
+        <p class="my-0">av: {{#hb_bookforfattare Forfattare}}{{/hb_bookforfattare}}               
         
         <div class="mt-0 d-flex justify-content-start">            
             <div class="mr-2">
@@ -31,7 +31,8 @@
 </div>
 <div class="row pr-2 ">
     <div class="col-sm-6">        
-        {{#hb_forfattarlist Forfattare}}{{/hb_forfattarlist}} 
+        {{#hb_forfattarlist Forfattare 1}}{{/hb_forfattarlist}} 
+        {{#hb_forfattarlist Illustrator 2}}{{/hb_forfattarlist}}
         {{#hb_bookSerie Serie Serienr }}{{/hb_bookSerie}}        
         <div class="mx-0">
             <p class="my-0"><strong>Utgivnings&aring;r: </strong>{{Published}}</p>

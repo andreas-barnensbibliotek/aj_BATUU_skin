@@ -44,9 +44,16 @@ a {
     &:hover,
     &:active {
       color: $body-color; 
+    } 
+}
+.bb_aj_creator{
+    a{
+        color: $batuu-teak;
     }
-
-
+    &:hover,
+    &:active {
+      color: $body-color; 
+    } 
 }
 
 .batuu-container {
@@ -339,6 +346,10 @@ li.dropdown:hover > .dropdown-menu {
     .batuu-category-div{   
         padding-top: 30px; 
     }
+    .searchInputContainer{
+        max-width: 9rem!important;
+    }
+    
 }
 
 .batuu-category-icon{
@@ -438,7 +449,13 @@ li.dropdown:hover > .dropdown-menu {
 
 }
 
+.batuu-book-width{
+    width: 214px;
 
+    // @media (max-width: 576px) {
+    //     width: 180px;
+    // }
+} 
 .batuu-rating-footer{
     background-color: $gray-400;
     padding: 5px;

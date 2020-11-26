@@ -212,9 +212,12 @@ const boklistEventHandler = () => {
 			$('.align-self-start').show();
 		}
 		let element = document.querySelector('.jplist-pagination');
-		observer.observe(element, {
-			attributes: true //configure it to listen to attribute changes
-		});
+		if (element) {
+			observer.observe(element, {
+				attributes: true //configure it to listen to attribute changes
+			});
+		}
+
 		callback();
 	}
 

@@ -34,9 +34,10 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
     height: 32px;
     display: inline-block;
 }
-#cmdDetailClose{
-    /* padding: .5rem;
-    padding-right: .2rem; */
+#cmdDetailClose{   
+    margin-right: .7rem!important;
+    margin-top: 2rem;
+    margin-bottom: 1rem;  
     display: block;
 }
 
@@ -60,4 +61,21 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 }
 .aj_bb_formAlert{
     color:red;
+}
+.userToOpacBytbibl_link{
+    margin-left:1rem;
+    font-size:.8rem;
+}
+#opacDrpdownBlock{
+    margin-left:2rem;
+    font-size:.8rem;
+}
+
+.LoginPanel{
+    margin-top:2rem;
+}
+
+.aj_jplist_item img {
+    min-width: 25px;
+    border:0;
 }

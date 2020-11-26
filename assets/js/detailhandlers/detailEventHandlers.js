@@ -77,7 +77,11 @@ const detailHandler = () => {
 				$reviewAlert.html('Du m&aring;ste skriva vad du tycker!');
 			}
 			if (correctForm) {
-				detailhandlerObj.commentform(forminfo, function() {});
+				detailhandlerObj.commentform(forminfo, function() {
+					$('#aj_bb_name').val('');
+					$('#aj_bb_age').val('');
+					$('#aj_bb_review').val('');
+				});
 			}
 			return false;
 		});

@@ -14,7 +14,8 @@
     </div>
     <div class="col-sm-12 col-md-9">
         <h3 class="mb-0">{{title}}</h3>
-        <p class="my-0">av: <a href="#" class="batuu-link">{{#each Forfattare}} {{namn}} {{/each}}</a></p>
+        <p class="my-0">av: {{#hb_bookforfattare Forfattare}}{{/hb_bookforfattare}}               
+        
         <div class="mt-0 d-flex justify-content-start">            
             <div class="mr-2">
                 <div class="aj_bb_fjarilsrating"></div>
@@ -24,18 +25,15 @@
             </div>
         </div>
 
-
         <p>{{{BookReview}}}</p>
 
     </div>
 </div>
 <div class="row pr-2 ">
-    <div class="col-sm-6">
-        <div class="mx-0">
-            <p class="my-0 bb_aj_creator"><strong>F&ouml;rfattare:</strong>{{#each Forfattare}} <span data-creatorid="{{creatorid}}" class="aj_bb_creatorid "> {{namn}} </span>{{/each}}</p>
-        </div>
-        {{#hb_bookSerie Serie Serienr }}{{/hb_bookSerie}}
-        
+    <div class="col-sm-6">        
+        {{#hb_forfattarlist Forfattare 1}}{{/hb_forfattarlist}} 
+        {{#hb_forfattarlist Illustrator 2}}{{/hb_forfattarlist}}
+        {{#hb_bookSerie Serie Serienr }}{{/hb_bookSerie}}        
         <div class="mx-0">
             <p class="my-0"><strong>Utgivnings&aring;r: </strong>{{Published}}</p>
         </div>
@@ -44,10 +42,10 @@
         </div>
         <div class="mx-0">
             <p class="my-0" id="aj_kk_isbn" data-isbn="{{isbn}}"><strong>ISBN:</strong> {{isbn}}</p>
-        </div>
-        <div class="mx-0">
-            <p class="my-0"><strong>Kategori:</strong> {{#each Categories}} {{catnamn}} {{/each}}</p>
-        </div>
+        </div>        
+        {{#hb_categorylist Categories}}{{/hb_categorylist}}      
+        {{#hb_mediatypcat MediatypCategories}}{{/hb_mediatypcat}}
+        {{#hb_Amnenlist Amnen}}{{/hb_Amnenlist}}              
     </div>
     <div class="col-sm-6 pb-3">
         <div class="mx-0">
