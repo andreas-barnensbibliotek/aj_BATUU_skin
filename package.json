@@ -9,7 +9,11 @@
     "dev:webpack": "webpack --mode development --env.NODE_ENV=dev",
     "build:webpack": "webpack --mode production --env.NODE_ENV=production",
     "watch": "gulp",
-    "proxy": "gulp watch-proxy"
+    "proxy": "gulp watch-proxy",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   },
   "author": "",
   "license": "ISC",
