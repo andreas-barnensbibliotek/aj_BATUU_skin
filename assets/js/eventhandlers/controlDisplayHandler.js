@@ -4,7 +4,7 @@ const displayHandler = () => {
 	let $fullwidthcontainer, $katalogenMainListBlock, $aj_bb_btnCat;
 	let _appconfig = appconfigObj();
 	let urlParams = {
-		shtyp: '0'
+		typ: '0'
 	};
 
 	function bindDom() {
@@ -24,6 +24,10 @@ const displayHandler = () => {
 				retobj = true;
 				break;
 
+			case 'detail': //detaljvyn
+				console.log('visa Detaljsidan');
+				retobj = true;
+				break;
 			default:
 				listvyhandler(urlParams);
 		}
@@ -32,11 +36,12 @@ const displayHandler = () => {
 	}
 
 	function listvyhandler(urlParams) {
-		if (!urlParams.shtyp) {
-			urlParams.shtyp = '0';
+		if (!urlParams.typ) {
+			urlParams.typ = '0';
 		}
-
-		if (urlParams.shtyp != '0') {
+		console.log(urlParams);
+		console.log('log typ: ' + urlParams.typ);
+		if (urlParams.typ != '0') {
 			console.log('visa listning');
 			$fullwidthcontainer.hide();
 			$katalogenMainListBlock.show();

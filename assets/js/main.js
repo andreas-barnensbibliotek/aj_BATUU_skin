@@ -11,17 +11,17 @@ $(function() {
 	// hämta från querystring
 	let urlParams = {};
 	urlParams = qHandler.checkparamsinurl(urlParams);
-	console.log('urlParams.id: ' + urlParams.bookid);
+	console.log('urlParams.id: ' + urlParams.bokid);
 
 	if (qHandler.checkpage(urlParams)) {
-		console.log('detaljvy 2');
+		// console.log('detaljvy 2');
 
-		detailObj.init(urlParams.bookid, _userid);
+		detailObj.init(urlParams.bokid, _userid);
 	} else {
 		blEvent.init(_userid, urlParams, function() {});
 
-		console.log('listvy');
-	}
+		// console.log('listvy');
+	};
 
 	$('#dnn_lyssarealspeaker').on('click', function() {
 		$('#ReadspeakerBox').toggle();

@@ -31,10 +31,13 @@ const detailSearchEventHandler = () => {
 
 			if (typeof searchbox != 'undefined' && searchbox != null) {
 				window.location =
-					'/tabid/' +
-					_appconfig.tabid.katalogenSearchvy +
-					'/Default.aspx?shtyp=req&srh=' +
-					encodeURIComponent(searchstr);
+					'/katalogen?typ=fritext&sok=' + encodeURIComponent(searchstr);
+
+				// window.location =
+				// '/tabid/' +
+				// _appconfig.tabid.katalogenSearchvy +
+				// '/Default.aspx?typ=fritext&sok=' +
+				// encodeURIComponent(searchstr);
 			}
 
 			return false;

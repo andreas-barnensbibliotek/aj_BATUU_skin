@@ -19,7 +19,7 @@ const boklistEventHandler = () => {
 		$bb_aj_spinnerHeaderWorks;
 
 	let urlParams = {
-		shtyp: '0'
+		typ: '0'
 	};
 	let blobj = BooklistObj();
 	let autoObj = autocompleteObj();
@@ -59,10 +59,10 @@ const boklistEventHandler = () => {
 			let catid = $(this).attr('data-catid');
 			console.log('catid= ' + catid);
 			spinnerobj(true);
-			urlParams.shtyp = catid;
+			urlParams.typ = catid;
 
 			displayobj.checkToDisplay(urlParams);
-			window.history.pushState('', 'titletest', '?shtyp=cat&srh=' + catid);
+			window.history.pushState('', 'titletest', '?typ=cat&sok=' + catid);
 			$pagerstyle.html('');
 
 			if (catid != 0) {
@@ -81,10 +81,10 @@ const boklistEventHandler = () => {
 		$mainboklistcontainer.on('click', '.amnNav', function(e) {
 			let amnid = $(this).attr('data-amnid');
 			spinnerobj(true);
-			urlParams.shtyp = amnid;
+			urlParams.typ = amnid;
 
 			displayobj.checkToDisplay(urlParams);
-			window.history.pushState('', 'Search amne', '?shtyp=amn&srh=' + amnid);
+			window.history.pushState('', 'Search amne', '?typ=amn&sok=' + amnid);
 			$pagerstyle.html('');
 			jplistReset();
 
@@ -101,7 +101,7 @@ const boklistEventHandler = () => {
 			let searchstr = $aj_bb_searchbox.val();
 			spinnerobj(true);
 
-			urlParams.shtyp = 'freeserch';
+			urlParams.typ = 'frisok';
 			displayobj.checkToDisplay(urlParams);
 
 			$pagerstyle.html('');
@@ -161,10 +161,10 @@ const boklistEventHandler = () => {
 		xtrafuncObj.init(userid);
 		spinnerobj(true);
 
-		param = urlParams.srh;
+		param = urlParams.sok;
 
-		switch (urlParams.shtyp) {
-			case 'req':
+		switch (urlParams.typ) {
+			case 'fritext':
 				if (param == '') {
 					param = 'birger';
 				}

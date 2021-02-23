@@ -6,7 +6,7 @@ module.exports = function(Serie, Serienr) {
 		retobj += '<div class="mx-0"><p class="my-0"><strong>Serie:</strong> ';
 
 		retobj +=
-			'<a href="/tabid/1468/Default.aspx?shtyp=req&srh=' +
+			'<a href="/katalogen?typ=fritext&sok=' +
 			encodeURIComponent(Serie) +
 			'" class="batuu-link">';
 		retobj += Serie;

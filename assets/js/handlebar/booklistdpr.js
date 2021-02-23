@@ -6,6 +6,8 @@ module.exports = function(userbooklistobj, bookid) {
 	}
 };
 
+let urlkrypinboktips = '/Krypin/bk_aj_boktips_Krypin/tabid/1431/Default.aspx';
+
 let booklistHandler = (function() {
 	function isBookInList(tmpbooklist, bookid) {
 		let ret = false;
@@ -31,7 +33,9 @@ let booklistHandler = (function() {
 			bookid +
 			'" >';
 		retstrlinks +=
-			'<a class="dropdown-item" href="/Krypin/bk_aj_boktips_Krypin/tabid/1431/Default.aspx?bookid=' +
+			'<a class="dropdown-item" href="' +
+			urlkrypinboktips +
+			'?bookid=' +
 			bookid +
 			'"><div class="btn  btn-circle-drp"><i class="fas fa-pen"></i></div> Skriv boktips</a>';
 		// retstrlinks +=

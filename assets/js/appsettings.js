@@ -3,10 +3,10 @@ const appconfig = () => {
 	// let _dnnURL = 'http://localdev.kivdev.se';
 	// let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
 	// let _dnnURL = 'http://dev1.barnensbibliotek.se';
-	let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
-	let _dnnURL = 'http://nytt.barnensbibliotek.se';
-	// let _apiserver = 'https://www2.barnensbibliotek.se';
-	// let _dnnURL = 'https://www.barnensbibliotek.se';
+	// let _apiserver = 'http://dev1.barnensbibliotek.se:8080';
+	// let _dnnURL = 'http://nytt.barnensbibliotek.se';
+	let _apiserver = 'https://www2.barnensbibliotek.se';
+	let _dnnURL = 'https://www.barnensbibliotek.se';
 
 	let _devkey = 'alf';
 	let _apidevkeyend = '/devkey/' + _devkey + '/?type=json&callback=?';

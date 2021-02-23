@@ -9,11 +9,7 @@
     "dev:webpack": "webpack --mode development --env.NODE_ENV=dev",
     "build:webpack": "webpack --mode production --env.NODE_ENV=production",
     "watch": "gulp",
-    "proxy": "gulp watch-proxy",
-    "preinstall": "npx npm-force-resolutions"
-  },
-  "resolutions": {
-    "graceful-fs": "^4.2.4"
+    "proxy": "gulp watch-proxy"
   },
   "author": "",
   "license": "ISC",
@@ -26,11 +22,11 @@
     "@babel/preset-stage-0": "^7.0.0",
     "@babel/register": "^7.0.0",
     "autoprefixer": "^9.3.1",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.14",
     "child_process": "^1.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
@@ -42,7 +38,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^2.6.5",
-    "har-validator": "^5.1.3",
+    "har-validator": "^5.1.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.13.1",
@@ -55,9 +51,8 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglify-es": "^3.3.9",
-    "uglifyjs-webpack-plugin": "^1.3.0",
-    "vinyl-fs": "^3.0.3",
-    "webpack": "^4.42.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.25.1",
     "webpack-chunk-hash": "0.6.0",
     "webpack-cli": "^3.1.2"
   },
@@ -65,10 +60,13 @@
     "@babel/plugin-proposal-decorators": "^7.1.6",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-async-to-generator": "^7.1.0",
-    "gulp-cli": "^2.2.0",
-    "handlebars": "^4.7.3",
+    "express-handlebars": "^5.2.1",
+    "gulp-cli": "^2.3.0",
+    "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.1",
-    "lodash": "^4.17.15",
-    "webpack-dev-server": "^3.1.14"
+    "lodash": "^4.17.21",
+    "natives": "^1.1.6",
+    "vinyl-fs": "^3.0.3",
+    "webpack-dev-server": "^3.11.2"
   }
 }

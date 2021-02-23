@@ -23,21 +23,25 @@ const queryHandler = () => {
 			if (index > 0) {
 				urlParams.tabid = sPageURL[index + 1];
 			}
-			index = sPageURL.indexOf('srh');
+			index = sPageURL.indexOf('bok');
 			if (index > 0) {
-				urlParams.srh = sPageURL[index + 1];
+				urlParams.tabid = 'detail';
 			}
-			index = sPageURL.indexOf('shtyp');
+			index = sPageURL.indexOf('sok'); //srh
 			if (index > 0) {
-				urlParams.shtyp = sPageURL[index + 1];
+				urlParams.sok = sPageURL[index + 1];
 			}
-			index = sPageURL.indexOf('bookid');
+			index = sPageURL.indexOf('typ'); //shtyp
 			if (index > 0) {
-				urlParams.bookid = sPageURL[index + 1];
+				urlParams.typ = sPageURL[index + 1];
+			}
+			index = sPageURL.indexOf('bokid');
+			if (index > 0) {
+				urlParams.bokid = sPageURL[index + 1];
 			}
 			index = sPageURL.indexOf('id');
 			if (index > 0) {
-				urlParams.bookid = sPageURL[index + 1];
+				urlParams.bokid = sPageURL[index + 1];
 			}
 		}
 		return urlParams;

@@ -9,7 +9,7 @@ const autoCompleteHandler = () => {
 	let appconf = appconfigObj();
 
 	let urlParams = {
-		shtyp: '0'
+		typ: '0'
 	};
 
 	function init() {
@@ -27,7 +27,7 @@ const autoCompleteHandler = () => {
 						let i;
 						for (i = 0; i < choices.length; i++)
 							if (
-								~(choices[i].Bookid + ' ' + choices[i].Title)
+								~(choices[i].bokid + ' ' + choices[i].Title)
 									.toLowerCase()
 									.indexOf(term)
 							)
@@ -44,7 +44,7 @@ const autoCompleteHandler = () => {
 					'<div class="autocomplete-suggestion" data-langname="' +
 					item.Title +
 					'" data-lang="' +
-					item.Bookid +
+					item.bokid +
 					'" data-val="' +
 					search +
 					'"><img src="' +
@@ -60,7 +60,7 @@ const autoCompleteHandler = () => {
 				let userid = appconf.userinfo.userid;
 				$spinner.show();
 
-				urlParams.shtyp = 'freeserch';
+				urlParams.typ = 'frisok';
 				// displayobj.checkToDisplay(urlParams);
 				$('#aj_bb_searchbox').val(searchstr);
 				$('#aj_bb_searchbtn')
